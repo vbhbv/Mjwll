@@ -1,62 +1,217 @@
-/* تنسيقات أساسية */
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مجول شعلان الحيالي - الكاتب الثقافي والفلسفي</title>
+
+<!-- وصف الموقع لمحركات البحث -->
+<meta name="description" content="موقع الكاتب مجول شعلان الحيالي، مقالات وفلسفة وأعمال ثقافية واجتماعية، رؤى حديثة عن الإنسان والمجتمع">
+
+<!-- كلمات مفتاحية SEO -->
+<meta name="keywords" content="مجول شعلان الحيالي, كاتب ثقافي, فلسفة, مقالات, الفكر المعاصر, المدينة الفاضلة الحديثة, الوردي كما لم يُفهم بعد, الفلسفة الإسلامية, تحليلات اجتماعية, الثقافة والفكر">
+
+<!-- تحسينات لمحركات البحث الاجتماعية -->
+<meta property="og:title" content="مجول شعلان الحيالي - الكاتب الثقافي والفلسفي">
+<meta property="og:description" content="موقع الكاتب مجول شعلان الحيالي، مقالات وفلسفة وأعمال ثقافية واجتماعية">
+<meta property="og:type" content="website">
+<meta property="og:image" content="رابط_صورة_مميزة.jpg">
+<meta property="og:url" content="رابط_الموقع_النهائي">
+
+<!-- خطوط وأسلوب -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.8;
+  background-color: #fdfdfd;
+  color: #222;
 }
 .container {
   width: 90%;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
-
-/* رأس الموقع */
 .site-header {
-  background-color: #333;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
   color: #fff;
-  padding: 1.5rem 0;
   text-align: center;
+  padding: 2rem 1rem;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 .site-header .subtitle {
   margin-top: 0.5rem;
-  font-size: 1.1rem;
-  opacity: 0.8;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
-
-/* المحتوى */
+nav {
+  margin-top: 1rem;
+}
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ffeb3b;
+}
 .profile {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .profile .photo img {
-  max-width: 200px;
+  max-width: 250px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover;
+  border: 4px solid #4e54c8;
 }
 .profile .info {
   flex: 1;
 }
-
-.works, .articles {
-  margin-top: 2rem;
+.profile .info h2 {
+  margin-top: 0;
+  color: #4e54c8;
+  font-size: 2rem;
 }
-.works ul, .articles ul {
+.profile .info p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+.section {
+  margin-bottom: 3rem;
+}
+.section h2 {
+  text-align: center;
+  color: #4e54c8;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.section ul {
   list-style: inside disc;
+  padding-left: 1rem;
 }
-.works li, .articles li {
-  margin: 0.5rem 0;
+.section li {
+  margin: 0.8rem 0;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
 }
-
-/* التذييل */
+.section li:hover {
+  transform: translateX(5px);
+  color: #4e54c8;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.gallery img {
+  width: 30%;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 .site-footer {
-  background-color: #333;
+  background-color: #4e54c8;
   color: #fff;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 3rem;
+  padding: 1.5rem 0;
 }
+.site-footer a {
+  color: #ffeb3b;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  .gallery img {
+    width: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .gallery img {
+    width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>مجول شعلان الحيالي</h1>
+  <div class="subtitle">كاتب ثقافي وفيلسوف معاصر</div>
+  <nav>
+    <a href="#profile">السيرة</a>
+    <a href="#works">الأعمال</a>
+    <a href="#articles">المقالات</a>
+    <a href="#gallery">معرض الصور</a>
+  </nav>
+</header>
+
+<div class="container">
+  <section id="profile" class="profile">
+    <div class="photo">
+      <img src="https://source.unsplash.com/250x250/?writer,book" alt="صورة الكاتب مجول شعلان الحيالي">
+    </div>
+    <div class="info">
+      <h2>عن الكاتب</h2>
+      <p>مجول شعلان الحيالي كاتب معاصر يركز على الفكر الثقافي والاجتماعي ويكتب مقالات وفلسفات تهدف إلى فهم الإنسان والمجتمع بطريقة عميقة وجذابة. يجمع بين التحليل النفسي والاجتماعي واللغة الأدبية الرصينة.</p>
+    </div>
+  </section>
+
+  <section id="works" class="section works">
+    <h2>أعمال الكاتب</h2>
+    <ul>
+      <li>المدينة الفاضلة الحديثة</li>
+      <li>الوردي كما لم يُفهم بعد</li>
+      <li>رؤية جديدة للفلسفة الإسلامية</li>
+    </ul>
+  </section>
+
+  <section id="articles" class="section articles">
+    <h2>المقالات المختارة</h2>
+    <ul>
+      <li>جدلية المظهر والجوهر في مفهوم الجمال</li>
+      <li>الذات المنقسمة وتأملات في النفس البشرية</li>
+      <li>الهمجية والحياد في المجتمع المعاصر</li>
+    </ul>
+  </section>
+
+  <section id="gallery" class="section gallery">
+    <h2>معرض الصور</h2>
+    <img src="https://source.unsplash.com/300x200/?books" alt="كتب">
+    <img src="https://source.unsplash.com/300x200/?writing" alt="كتابة">
+    <img src="https://source.unsplash.com/300x200/?library" alt="مكتبة">
+  </section>
+</div>
+
+<footer class="site-footer">
+  جميع الحقوق محفوظة &copy; 2025 | تابعنا على <a href="#">وسائل التواصل</a>
+</footer>
+
+</body>
+</html>
