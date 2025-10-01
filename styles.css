@@ -1,26 +1,26 @@
 /* ---------------------------------
    1. الإعدادات الأساسية ومتغيرات CSS (Variables & Reset)
 --------------------------------- */
-
-/* خط رقعة (مناسب للمحتوى الثقافي) - زيادة الوزن للعنوان */
-@import url('https://fonts.googleapis.com/css2?family=Ruqaa:wght@400;700&display=swap');
+/* استخدام خط Ruqaa للنص، وخط Changa للعناوين لتباين أفضل */
+@import url('https://fonts.googleapis.com/css2?family=Ruqaa:wght@400;700&family=Changa:wght@600;800&display=swap');
 
 :root {
-    /* نظام الألوان الأساسي */
+    /* نظام الألوان الأساسي (مستوحى من الألوان الأصلية) */
     --color-primary: #4e54c8; /* الأزرق البنفسجي (اللون الرئيسي) */
-    --color-secondary: #ffeb3b; /* الأصفر البراق (لون التمييز/Hover) */
-    --color-text-dark: #222;
+    --color-secondary: #8f94fb; /* تدرج أفتح */
+    --color-accent: #ffeb3b; /* الأصفر البراق (لون التمييز/Hover) */
+    --color-text-dark: #343a40; /* رمادي داكن للنص */
     --color-text-light: #fff;
-    --color-background: #f8f9fa; /* خلفية أفتح قليلاً من fdfdfd */
+    --color-background: #f8f9fa; /* خلفية ناصعة */
     --color-card-bg: #ffffff;
-    --color-shadow: rgba(0, 0, 0, 0.08); /* ظل أخف */
-
-    /* أبعاد ثابتة */
-    --spacing-base: 1.5rem;
+    --color-shadow: rgba(0, 0, 0, 0.1); /* ظل أنيق وناعم */
+    --font-heading: 'Changa', sans-serif;
+    --font-body: 'Ruqaa', serif;
+    --spacing-unit: 1.5rem;
     --border-radius: 12px;
 }
 
-/* إعادة ضبط بسيطة وعصرية */
+/* إعادة ضبط عصرية (Box Sizing) */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -28,236 +28,260 @@
 }
 
 body {
-    margin: 0;
-    font-family: 'Ruqaa', serif;
-    background-color: var(--color-background);
+    font-family: var(--font-body);
+    line-height: 1.8;
     color: var(--color-text-dark);
-    line-height: 1.8; /* خط الرقعة يحتاج إلى تباعد أكبر لراحة العين */
+    background-color: var(--color-background);
     direction: rtl;
-    padding-top: 5.5rem; /* مساحة لرأس الصفحة الثابت */
+    padding-top: 5rem; /* مساحة لرأس الصفحة الثابت */
     transition: background-color 0.3s, color 0.3s;
 }
 
 /* ---------------------------------
-   2. الأنماط العامة (Typography & Utility)
+   2. الأنماط العامة والخطوط (Typography & Utility)
 --------------------------------- */
 
 .container {
-    width: 92%; /* زيادة طفيفة في العرض لملء الشاشة بشكل أفضل */
-    max-width: 1200px; /* زيادة أقصى عرض */
+    width: 92%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 }
 
 h1, h2, h3 {
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-weight: 800;
     color: var(--color-primary);
-    margin-bottom: var(--spacing-base);
+    margin-bottom: var(--spacing-unit);
+}
+
+h2 {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: calc(1.5 * var(--spacing-unit));
+    border-bottom: 2px solid var(--color-secondary); /* خط فاصل مميز */
 }
 
 a {
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s, opacity 0.3s;
+    transition: color 0.3s, transform 0.2s;
 }
 
 a:hover {
-    opacity: 0.8;
+    color: var(--color-secondary);
+    text-decoration: none;
 }
 
+/* الأزرار (Buttons) */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    margin-top: var(--spacing-unit);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: #3b42a8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
 
 /* ---------------------------------
    3. رأس الموقع وقائمة التنقل (Header & Navigation)
 --------------------------------- */
 
 .site-header {
-    /* تثبيت رأس الصفحة وجعل التدرج اللوني أكثر حداثة */
-    background: linear-gradient(135deg, var(--color-primary) 0%, #8f94fb 100%);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     color: var(--color-text-light);
-    text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* للسماح بتنظيم العناصر على الهواتف */
 }
 
 .site-header h1 {
+    font-size: 1.8rem;
+    color: var(--color-text-light);
     margin: 0;
-    font-size: 2.2rem;
-    color: var(--color-text-light); /* لضمان اللون الأبيض */
 }
 
-.site-header .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    margin-top: 0.2rem;
+.subtitle {
+    display: none; /* إخفاء النص الفرعي في شاشة الكمبيوتر */
 }
 
+/* تنسيق شريط التنقل على الكمبيوتر */
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 2rem;
 }
 
 nav a {
     color: var(--color-text-light);
-    font-weight: 400; /* تقليل وزن الخط لتمييزه عن العناوين */
+    font-weight: 600;
     position: relative;
     padding-bottom: 5px;
 }
 
-/* تأثير خط تحت الرابط عند المرور */
+/* تأثير خط تحتي مميز */
 nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
-    right: 50%; /* يبدأ من المنتصف */
+    right: 50%;
     transform: translateX(50%);
     width: 0;
     height: 3px;
-    background-color: var(--color-secondary);
+    background-color: var(--color-accent);
     transition: width 0.3s ease-out;
 }
 
-nav a:hover::after {
+nav a:hover::after,
+nav a:focus::after {
     width: 100%;
 }
 
 /* ---------------------------------
-   4. الأقسام الرئيسية وتصميم الشبكة (Grid Layout)
+   4. تخطيط Grid الرئيسي (Main Content Layout)
 --------------------------------- */
 
-.main-content {
-    /* تطبيق تخطيط الشبكة للفصل بين المحتوى الرئيسي والقائمة الجانبية */
+.content-wrapper {
+    /* استخدام CSS Grid لتخطيط احترافي */
     display: grid;
-    grid-template-columns: 3fr 1fr; /* 3 أجزاء للمحتوى الرئيسي وجزء للشريط الجانبي */
+    grid-template-columns: 3fr 1fr;
     gap: 3rem;
     margin-top: 2rem;
 }
 
-/* الأقسام (مقالات، كتب، أخبار) */
+/* ---------------------------------
+   5. الأقسام وتصميم البطاقات (Sections & Cards)
+--------------------------------- */
+
 .section {
     background: var(--color-card-bg);
     padding: 2.5rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 15px var(--color-shadow); /* ظل أنعم */
-    margin-bottom: var(--spacing-base);
+    box-shadow: 0 5px 20px var(--color-shadow);
+    margin-bottom: var(--spacing-unit);
+    transition: box-shadow 0.3s;
 }
 
-.section h2 {
-    text-align: start; /* محاذاة العناوين لليمين */
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--color-background); /* خط فاصل خفيف */
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.section ul {
-    list-style: none; /* إزالة التنقيط الافتراضي */
-    padding-right: 0;
-}
-
-.section li {
-    margin: 1rem 0;
-    font-size: 1.05rem;
-    transition: all 0.2s;
-    padding: 0.5rem 0;
-    border-bottom: 1px dashed var(--color-background);
-}
-
-/* تنسيق الروابط داخل القائمة */
-.section li a {
-    color: var(--color-text-dark);
-    display: block;
-}
-
-.section li a:hover {
-    color: var(--color-primary);
-    transform: translateX(8px); /* تأثير حركة مميز عند المرور */
-}
-
-/* ---------------------------------
-   5. السيرة الذاتية (Profile Section)
---------------------------------- */
+/* تصميم قسم السيرة (Profile Section) */
 .profile-section {
     display: flex;
     flex-wrap: wrap;
     gap: 2.5rem;
     align-items: center;
-    background: var(--color-card-bg);
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.profile-photo {
-    flex-shrink: 0;
+    margin: 3rem 0;
 }
 
 .profile-photo img {
-    max-width: 220px; /* حجم الصورة أصغر قليلاً للحداثة */
+    max-width: 220px;
     width: 100%;
-    border-radius: 50%; /* جعلها دائرية */
+    border-radius: 50%; /* صورة دائرية عصرية */
     border: 5px solid var(--color-primary);
     object-fit: cover;
     transition: transform 0.5s;
 }
 
 .profile-photo img:hover {
-    transform: scale(1.05) rotate(1deg); /* تأثير تفاعلي خفيف */
+    transform: scale(1.05) rotate(1deg); /* تأثير تحويل بسيط */
 }
 
-.profile-info {
-    flex-grow: 1;
+/* تصميم قوائم الكتب والمقالات باستخدام Grid */
+.book-list, .article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid مستجيب مرن */
+    gap: 2rem;
+    list-style: none;
 }
 
-.profile-info h2 {
-    color: var(--color-primary);
-    font-size: 2.2rem;
-    border-bottom: none;
+.book-item, .article-preview {
+    background-color: #fafafa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-right: 4px solid var(--color-primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-item:hover, .article-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
 }
 
 /* ---------------------------------
-   6. الشريط الجانبي (Sidebar - للرسائل القصيرة والأخبار)
+   6. الشريط الجانبي (Sidebar & Forms)
 --------------------------------- */
-.sidebar {
-    /* الشريط الجانبي داخل Grid */
-}
-
 .sidebar .section {
     padding: 1.5rem;
-    margin-top: 0; /* إزالة الهامش العلوي المكرر */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.newsletter-signup form {
+    margin-top: 1rem;
 }
 
 .newsletter-signup input[type="email"] {
     width: 100%;
     padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-primary);
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--color-secondary);
     border-radius: 6px;
     font-family: inherit;
 }
 
-.btn {
-    display: inline-block;
+.newsletter-signup .btn-subscribe {
     width: 100%;
-    padding: 0.75rem;
     background-color: var(--color-primary);
     color: var(--color-text-light);
-    border-radius: 6px;
-    font-weight: 700;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn:hover {
-    background-color: #3b42a8; /* ظل أغمق */
-    transform: translateY(-2px);
 }
 
 /* ---------------------------------
@@ -272,43 +296,82 @@ nav a:hover::after {
 }
 
 .site-footer a {
-    color: var(--color-secondary);
+    color: var(--color-accent);
 }
 
 /* ---------------------------------
-   8. الاستجابة المتقدمة (Media Queries)
+   8. الاستجابة (Media Queries) - الهواتف والأجهزة اللوحية
 --------------------------------- */
 
-/* شاشات الأجهزة اللوحية الصغيرة والهواتف الكبيرة */
+/* شاشات الأجهزة اللوحية (Tablet and smaller desktops) */
 @media (max-width: 992px) {
-    .main-content {
-        /* تحويل تخطيط Grid إلى عمود واحد للسماح للمحتوى الجانبي بالظهور أسفل المحتوى الرئيسي */
+    .content-wrapper {
+        /* تحويل Grid إلى عمود واحد */
         grid-template-columns: 1fr;
     }
 
     .profile-section {
         flex-direction: column;
         text-align: center;
-        padding: 2rem;
     }
 }
 
-/* شاشات الهواتف المحمولة */
+/* شاشات الهواتف المحمولة (Mobile Devices) */
 @media (max-width: 576px) {
+    
     body {
-        padding-top: 8rem; /* زيادة المسافة العلوية لاستيعاب قائمة التنقل المكدسة */
+        padding-top: 7rem; /* زيادة المسافة العلوية لاستيعاب الهيدر الجديد */
     }
 
-    .site-header h1 {
-        font-size: 1.8rem;
+    /* إظهار زر الهامبرغر وإخفاء القائمة الأصلية */
+    .menu-toggle {
+        display: block;
+        color: var(--color-accent);
+    }
+    .subtitle {
+        display: none;
     }
     
-    nav ul {
-        flex-direction: column; /* تكديس عناصر القائمة عمودياً */
-        gap: 0.5rem;
+    nav {
+        /* إخفاء القائمة افتراضياً على الهواتف */
+        order: 3; /* دفع القائمة لأسفل الهيدر */
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
     }
 
-    .profile-photo img {
-        max-width: 180px;
+    /* تنسيق قائمة الجوال المفتوحة */
+    nav.is-open {
+        max-height: 400px;
+        background-color: rgba(78, 84, 200, 0.95); /* خلفية شبه شفافة للقائمة */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    nav a {
+        padding: 0.75rem 0;
+        width: 100%;
+        display: block;
+    }
+    
+    /* إلغاء تأثير الخط الأفقي في وضع الجوال */
+    nav a::after {
+        content: none;
+    }
+    
+    /* تنسيق زر الهامبرغر نفسه */
+    .menu-toggle {
+        display: block;
+    }
+    .hamburger-icon,
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+        background-color: var(--color-accent);
     }
 }
