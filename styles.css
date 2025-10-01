@@ -1,142 +1,314 @@
-/* خط رقعة */
-@import url('https://fonts.googleapis.com/css2?family=Ruqaa&display=swap');
+/* ---------------------------------
+   1. الإعدادات الأساسية ومتغيرات CSS (Variables & Reset)
+--------------------------------- */
+
+/* خط رقعة (مناسب للمحتوى الثقافي) - زيادة الوزن للعنوان */
+@import url('https://fonts.googleapis.com/css2?family=Ruqaa:wght@400;700&display=swap');
+
+:root {
+    /* نظام الألوان الأساسي */
+    --color-primary: #4e54c8; /* الأزرق البنفسجي (اللون الرئيسي) */
+    --color-secondary: #ffeb3b; /* الأصفر البراق (لون التمييز/Hover) */
+    --color-text-dark: #222;
+    --color-text-light: #fff;
+    --color-background: #f8f9fa; /* خلفية أفتح قليلاً من fdfdfd */
+    --color-card-bg: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.08); /* ظل أخف */
+
+    /* أبعاد ثابتة */
+    --spacing-base: 1.5rem;
+    --border-radius: 12px;
+}
+
+/* إعادة ضبط بسيطة وعصرية */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-  margin: 0;
-  font-family: 'Ruqaa', serif;
-  background-color: #fdfdfd;
-  color: #222;
-  line-height: 1.8;
+    margin: 0;
+    font-family: 'Ruqaa', serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.8; /* خط الرقعة يحتاج إلى تباعد أكبر لراحة العين */
+    direction: rtl;
+    padding-top: 5.5rem; /* مساحة لرأس الصفحة الثابت */
+    transition: background-color 0.3s, color 0.3s;
 }
+
+/* ---------------------------------
+   2. الأنماط العامة (Typography & Utility)
+--------------------------------- */
 
 .container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem 0;
+    width: 92%; /* زيادة طفيفة في العرض لملء الشاشة بشكل أفضل */
+    max-width: 1200px; /* زيادة أقصى عرض */
+    margin: 0 auto;
+    padding: 1.5rem 0;
 }
 
-/* رأس الموقع */
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-base);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s, opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+
+/* ---------------------------------
+   3. رأس الموقع وقائمة التنقل (Header & Navigation)
+--------------------------------- */
+
 .site-header {
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
+    /* تثبيت رأس الصفحة وجعل التدرج اللوني أكثر حداثة */
+    background: linear-gradient(135deg, var(--color-primary) 0%, #8f94fb 100%);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .site-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--color-text-light); /* لضمان اللون الأبيض */
 }
 
 .site-header .subtitle {
-  font-size: 1.3rem;
-  opacity: 0.9;
-  margin-top: 0.5rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 0.2rem;
 }
 
-nav {
-  margin-top: 1rem;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 nav a {
-  margin: 0 15px;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s;
+    color: var(--color-text-light);
+    font-weight: 400; /* تقليل وزن الخط لتمييزه عن العناوين */
+    position: relative;
+    padding-bottom: 5px;
 }
 
-nav a:hover {
-  color: #ffeb3b;
+/* تأثير خط تحت الرابط عند المرور */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%; /* يبدأ من المنتصف */
+    transform: translateX(50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--color-secondary);
+    transition: width 0.3s ease-out;
 }
 
-/* السيرة */
-.profile-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  margin: 3rem 0;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+nav a:hover::after {
+    width: 100%;
 }
 
-.profile-photo img {
-  max-width: 250px;
-  width: 100%;
-  border-radius: 12px;
-  border: 4px solid #4e54c8;
-  object-fit: cover;
+/* ---------------------------------
+   4. الأقسام الرئيسية وتصميم الشبكة (Grid Layout)
+--------------------------------- */
+
+.main-content {
+    /* تطبيق تخطيط الشبكة للفصل بين المحتوى الرئيسي والقائمة الجانبية */
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 3 أجزاء للمحتوى الرئيسي وجزء للشريط الجانبي */
+    gap: 3rem;
+    margin-top: 2rem;
 }
 
-.profile-info h2 {
-  margin-top: 0;
-  color: #4e54c8;
-  font-size: 2rem;
-}
-
-.profile-info p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 1rem;
-}
-
-/* الأقسام */
+/* الأقسام (مقالات، كتب، أخبار) */
 .section {
-  margin: 3rem 0;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    background: var(--color-card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px var(--color-shadow); /* ظل أنعم */
+    margin-bottom: var(--spacing-base);
 }
 
 .section h2 {
-  text-align: center;
-  color: #4e54c8;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+    text-align: start; /* محاذاة العناوين لليمين */
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--color-background); /* خط فاصل خفيف */
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .section ul {
-  list-style: inside disc;
-  padding-left: 1rem;
+    list-style: none; /* إزالة التنقيط الافتراضي */
+    padding-right: 0;
 }
 
 .section li {
-  margin: 0.8rem 0;
-  font-size: 1.1rem;
-  transition: transform 0.2s;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--color-background);
 }
 
-.section li:hover {
-  transform: translateX(5px);
-  color: #4e54c8;
+/* تنسيق الروابط داخل القائمة */
+.section li a {
+    color: var(--color-text-dark);
+    display: block;
 }
 
-/* التذييل */
+.section li a:hover {
+    color: var(--color-primary);
+    transform: translateX(8px); /* تأثير حركة مميز عند المرور */
+}
+
+/* ---------------------------------
+   5. السيرة الذاتية (Profile Section)
+--------------------------------- */
+.profile-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: center;
+    background: var(--color-card-bg);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    flex-shrink: 0;
+}
+
+.profile-photo img {
+    max-width: 220px; /* حجم الصورة أصغر قليلاً للحداثة */
+    width: 100%;
+    border-radius: 50%; /* جعلها دائرية */
+    border: 5px solid var(--color-primary);
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.05) rotate(1deg); /* تأثير تفاعلي خفيف */
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-info h2 {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    border-bottom: none;
+}
+
+/* ---------------------------------
+   6. الشريط الجانبي (Sidebar - للرسائل القصيرة والأخبار)
+--------------------------------- */
+.sidebar {
+    /* الشريط الجانبي داخل Grid */
+}
+
+.sidebar .section {
+    padding: 1.5rem;
+    margin-top: 0; /* إزالة الهامش العلوي المكرر */
+}
+
+.newsletter-signup input[type="email"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-radius: 6px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #3b42a8; /* ظل أغمق */
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------
+   7. التذييل (Footer)
+--------------------------------- */
 .site-footer {
-  background-color: #4e54c8;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem 0;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
 }
 
 .site-footer a {
-  color: #ffeb3b;
-  text-decoration: none;
+    color: var(--color-secondary);
 }
 
-.site-footer a:hover {
-  text-decoration: underline;
+/* ---------------------------------
+   8. الاستجابة المتقدمة (Media Queries)
+--------------------------------- */
+
+/* شاشات الأجهزة اللوحية الصغيرة والهواتف الكبيرة */
+@media (max-width: 992px) {
+    .main-content {
+        /* تحويل تخطيط Grid إلى عمود واحد للسماح للمحتوى الجانبي بالظهور أسفل المحتوى الرئيسي */
+        grid-template-columns: 1fr;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
 }
 
-/* استجابة الجوال */
-@media (max-width: 768px) {
-  .profile-section {
-    flex-direction: column;
-    text-align: center;
-  }
+/* شاشات الهواتف المحمولة */
+@media (max-width: 576px) {
+    body {
+        padding-top: 8rem; /* زيادة المسافة العلوية لاستيعاب قائمة التنقل المكدسة */
+    }
+
+    .site-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav ul {
+        flex-direction: column; /* تكديس عناصر القائمة عمودياً */
+        gap: 0.5rem;
+    }
+
+    .profile-photo img {
+        max-width: 180px;
+    }
 }
