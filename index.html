@@ -6,10 +6,87 @@
 <title>مجول شعلان الحيالي - الكاتب الثقافي والفيلسفي</title>
 
 <meta name="description" content="موقع الكاتب مجول شعلان الحيالي، مقالات وفلسفة وأعمال ثقافية واجتماعية، رؤى حديثة عن الإنسان والمجتمع">
-<meta name="keywords" content="مجول شعلان الحيالي, كاتب ثقافي, فلسفة, مقالات, الفكر المعاصر, المدينة الفاضلة الحديثة, الوردي كما لم يُفهم بعد, الفلسفة الإسلامية, تحليلات اجتماعية, الثقافة والفكر, آخر الأخبار">
+<meta name="keywords" content="مجول شعلان الحيالي, كاتب ثقافي, فلسفة, مقالات, الفكر المعاصر, المدينة الفاضلة الحديثة, الوردي كما لم يُفهم بعد, الفلسفة الإسلامية, تحليلات اجتماعية, الثقافة والفكر">
 
-<link rel="stylesheet" href="أنماط.css">
-<link rel="stylesheet" href="effects.css">
+<style>
+/* تنسيقات أساسية */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+/* رأس الموقع */
+.site-header {
+  background-color: #333;
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.site-header .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #ff6600;
+}
+
+/* المحتوى */
+section {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.profile .photo img {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.profile .info {
+  flex: 1;
+}
+ul {
+  list-style: inside disc;
+  padding-left: 0;
+}
+
+/* التذييل */
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+}
+.site-footer a {
+  color: #ff6600;
+  text-decoration: none;
+}
+</style>
 
 </head>
 <body>
@@ -30,7 +107,7 @@
 <main class="container">
 
   <!-- السيرة -->
-  <section id="profile" class="profile section">
+  <section id="profile" class="profile">
     <div class="photo">
       <img src="https://source.unsplash.com/250x250/?writer,portrait" alt="صورة الكاتب مجول شعلان الحيالي">
     </div>
@@ -41,7 +118,7 @@
   </section>
 
   <!-- آخر المؤلفات -->
-  <section id="works" class="section works">
+  <section id="works">
     <h2>آخر المؤلفات</h2>
     <ul>
       <li>المدينة الفاضلة الحديثة</li>
@@ -51,7 +128,7 @@
   </section>
 
   <!-- آخر المقالات -->
-  <section id="articles" class="section articles">
+  <section id="articles">
     <h2>آخر المقالات</h2>
     <ul>
       <li>جدلية المظهر والجوهر في مفهوم الجمال</li>
@@ -61,10 +138,11 @@
   </section>
 
   <!-- آخر الأخبار -->
-  <section id="news" class="section news">
+  <section id="news">
     <h2>آخر الأخبار</h2>
     <ul>
       <li>إطلاق الطبعة الجديدة من "المدينة الفاضلة الحديثة"</li>
+      <li>مشاركة الكاتب في مؤتمر الفلسفة المعاصرة</li>
       <li>مقال جديد عن التحليل النفسي والاجتماعي منشور مؤخراً</li>
     </ul>
   </section>
@@ -78,8 +156,13 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
-<script src="seo.js"></script>
+<script>
+// عداد زوار بسيط
+let count = localStorage.getItem('visitorCount') || 0;
+count++;
+localStorage.setItem('visitorCount', count);
+document.getElementById('visitor-count').innerText = count;
+</script>
 
 </body>
 </html>
