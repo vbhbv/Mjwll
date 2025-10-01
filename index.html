@@ -1,91 +1,159 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مجول شعلان الحيالي - الكاتب الثقافي والفيلسوفي</title>
 
-<meta name="description" content="موقع الكاتب مجول شعلان الحيالي، مقالات وفلسفة وأعمال ثقافية واجتماعية، رؤى حديثة عن الإنسان والمجتمع">
-<meta name="keywords" content="مجول شعلان الحيالي, كاتب ثقافي, فلسفة, مقالات, المدينة الفاضلة الحديثة, الوردي كما لم يُفهم بعد, الفلسفة الإسلامية, تحليلات اجتماعية, الثقافة والفكر">
+<meta name="description" content="موقع الكاتب مجول شعلان. مقالات معمقة في الفلسفة والفكر الثقافي والاجتماعي. رؤى حديثة عن الإنسان والمجتمع والمؤلفات: المدينة الفاضلة الحديثة والوردي كما لم يُفهم بعد.">
+<meta name="keywords" content="مجول شعلان الحيالي, كاتب ثقافي, فلسفة, مقالات, المدينة الفاضلة الحديثة, الوردي كما لم يُفهم بعد, الفلسفة الإسلامية, تحليلات اجتماعية, الثقافة والفكر, مفكر معاصر">
+<meta name="author" content="مجول شعلان الحيالي">
+<meta property="og:title" content="مجول شعلان الحيالي - الكاتب الثقافي والفيلسوفي">
+<meta property="og:description" content="مقالات معمقة في الفلسفة والفكر الثقافي والاجتماعي.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://play.google.com/store/apps/details?id=info.swappdevmobile.lbgooglemap&hl=ar">
+<meta property="og:image" content="[رابط صورة مميزة للموقع]">
+<meta property="og:locale" content="ar_AR">
 
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <h1>مجول شعلان الحيالي</h1>
+<header class="site-header" role="banner">
+  <div class="container header-content">
+    <a href="/" class="logo-link">
+        <h1>مجول شعلان الحيالي</h1>
+    </a>
     <p class="subtitle">كاتب ثقافي وفيلسوف معاصر</p>
-    <nav>
-      <a href="#profile">السيرة</a>
-      <a href="#works">آخر المؤلفات</a>
-      <a href="#articles">آخر المقالات</a>
-      <a href="#news">آخر الأخبار</a>
+    <nav role="navigation" aria-label="القائمة الرئيسية للموقع">
+      <ul>
+          <li><a href="#profile">السيرة</a></li>
+          <li><a href="#works">المؤلفات</a></li>
+          <li><a href="#articles">المقالات</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<main class="container">
+<main class="container main-content">
 
-  <!-- السيرة -->
-  <section id="profile" class="profile-section">
-    <div class="profile-photo">
-      <img src="images/author.jpg" alt="صورة الكاتب مجول شعلان الحيالي">
-    </div>
+  <section id="profile" class="profile-section" aria-labelledby="profile-heading">
+    <h2 id="profile-heading" class="visually-hidden">عن الكاتب</h2>
+    <figure class="profile-photo">
+      <img src="images/author.jpg" alt="صورة الكاتب مجول شعلان الحيالي" loading="lazy">
+      <figcaption class="photo-caption">مجول شعلان الحيالي</figcaption>
+    </figure>
     <div class="profile-info">
-      <h2>عن الكاتب</h2>
+      <h3>الرحلة الفكرية</h3>
       <p>مجول شعلان الحيالي كاتب وفيلسوف معاصر، يركز على الفكر الثقافي والاجتماعي. له مؤلفات ومقالات تعالج الإنسان والمجتمع بأسلوب عميق ومتميز، ويجمع بين التحليل النفسي والاجتماعي واللغة الأدبية الرصينة.</p>
+      <a href="about.html" class="btn btn-primary">اقرأ السيرة الكاملة</a>
     </div>
   </section>
 
-  <!-- آخر المؤلفات -->
-  <section id="works" class="section">
-    <h2>آخر المؤلفات</h2>
-    <ul>
-      <li>المدينة الفاضلة الحديثة</li>
-      <li>الوردي كما لم يُفهم بعد</li>
-      <li>رؤية جديدة للفلسفة الإسلامية</li>
-    </ul>
-  </section>
+  <div class="content-wrapper">
+    <div class="main-articles">
 
-  <!-- آخر المقالات -->
-  <section id="articles" class="section">
-      <section id="articles" class="section articles">
-  <h2>المقالات المختارة</h2>
-  <ul>
-    <li><a href="article1.html">جدلية المظهر والجوهر في مفهوم الجمال</a></li>
-    <li><a href="article2.html">مدخل إلى الفطرة وتحوّلها</a></li>
-    <li><a href="article3.html">الطبقية وعصيان العدالة</a></li>
-    <li><a href="article4.html">ميزان الأمم</a></li>
-    <li><a href="article5.html">غياب العقلانية وندرة المفكرين</a></li>
-  </ul>
-</section>
+      <section id="works" class="section works" aria-labelledby="works-heading">
+        <h2 id="works-heading">آخر المؤلفات</h2>
+        <div class="book-list">
+            <article class="book-item">
+                <h3><a href="book-city.html">المدينة الفاضلة الحديثة</a></h3>
+                <p>دراسة معمقة في الفلسفة السياسية والاجتماعية لإعادة تصور المجتمع المثالي في العصر الرقمي.</p>
+            </article>
+            <article class="book-item">
+                <h3><a href="book-wardi.html">الوردي كما لم يُفهم بعد</a></h3>
+                <p>تحليل نقدي وجديد لأعمال الدكتور علي الوردي وتأثيره على الفكر الاجتماعي العربي.</p>
+            </article>
+            <article class="book-item">
+                <h3><a href="book-islamic-philosophy.html">رؤية جديدة للفلسفة الإسلامية</a></h3>
+                <p>محاولة لتجديد العلاقة مع التراث الفلسفي الإسلامي برؤية معاصرة ومنفتحة.</p>
+            </article>
+        </div>
+        <a href="all-books.html" class="btn btn-secondary">تصفح جميع الكتب</a>
+      </section>
 
-  <!-- آخر الأخبار -->
-  <section id="news" class="section">
-    <h2>آخر الأخبار</h2>
-    <ul>
-      <li>إطلاق الطبعة الجديدة من "المدينة الفاضلة الحديثة"</li>
-      <li>مشاركة الكاتب في مؤتمر الفلسفة المعاصرة</li>
-      <li>مقال جديد عن التحليل النفسي والاجتماعي منشور مؤخراً</li>
-    </ul>
-  </section>
+      <section id="articles" class="section articles" aria-labelledby="articles-heading">
+        <h2 id="articles-heading">المقالات المختارة</h2>
+        <div class="article-list">
+            <article class="article-preview">
+                <h3><a href="article1.html">جدلية المظهر والجوهر في مفهوم الجمال</a></h3>
+                <p class="article-meta">نشر في: <span>2025/08/10</span></p>
+            </article>
+            <article class="article-preview">
+                <h3><a href="article2.html">مدخل إلى الفطرة وتحوّلها</a></h3>
+                <p class="article-meta">نشر في: <span>2025/07/25</span></p>
+            </article>
+            <article class="article-preview">
+                <h3><a href="article3.html">الطبقية وعصيان العدالة</a></h3>
+                <p class="article-meta">نشر في: <span>2025/07/01</span></p>
+            </article>
+        </div>
+        <a href="all-articles.html" class="btn btn-secondary">المزيد من المقالات</a>
+      </section>
 
-</main>
+    </div>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>جميع الحقوق محفوظة &copy; 2025 | تابعنا على <a href="#">وسائل التواصل</a></p>
-    <p>عدد زوار الموقع: <span id="visitor-count">0</span></p>
+    <aside class="sidebar" role="complementary" aria-labelledby="news-heading">
+        <section id="news" class="section news-section">
+            <h2 id="news-heading">آخر الأخبار والأحداث</h2>
+            <ul>
+              <li><a href="news1.html">إطلاق الطبعة الجديدة من "المدينة الفاضلة الحديثة"</a></li>
+              <li><a href="news2.html">مشاركة الكاتب في مؤتمر الفلسفة المعاصرة</a></li>
+              <li><a href="news3.html">مقال جديد عن التحليل النفسي والاجتماعي منشور مؤخراً</a></li>
+            </ul>
+            <a href="all-news.html" class="btn btn-tertiary">جميع الأخبار</a>
+        </section>
+
+        <section class="section social-proof">
+            <h3>تفاعل الموقع</h3>
+            <p>عدد زوار الموقع الكلي: <span id="visitor-count" aria-live="polite">0</span></p>
+            <p>المتابعون على منصة X: <span>[عدد]</span></p>
+        </section>
+
+        <section class="section newsletter-signup">
+            <h3>انضم إلى النشرة البريدية</h3>
+            <form action="[رابط معالج النموذج]" method="POST">
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" required aria-label="بريدك الإلكتروني">
+                <button type="submit" class="btn btn-subscribe">اشترك</button>
+            </form>
+        </section>
+
+    </aside>
+  </div> </main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-content">
+    <div id="contact" class="contact-info">
+        <h3>تواصل معنا</h3>
+        <p>للتعاون أو الاستفسار: <a href="mailto:info@majoulshaalan.com">info@majoulshaalan.com</a></p>
+    </div>
+    <div class="footer-links">
+        <p>جميع الحقوق محفوظة &copy; 2025 | تابعنا على: 
+            <a href="#" aria-label="صفحة الكاتب على فيسبوك">فيسبوك</a>،
+            <a href="#" aria-label="حساب الكاتب على X">X (تويتر سابقاً)</a>
+        </p>
+    </div>
   </div>
 </footer>
 
-<script>
-// عداد زوار بسيط
-let count = localStorage.getItem('visitorCount') || 0;
-count++;
-localStorage.setItem('visitorCount', count);
-document.getElementById('visitor-count').innerText = count;
+<script defer>
+// عداد زوار أكثر دقة (للمتصفح) ويتم تحميله بعد باقي المحتوى
+document.addEventListener('DOMContentLoaded', () => {
+    let count = parseInt(localStorage.getItem('visitorCount') || '0', 10);
+    count++;
+    localStorage.setItem('visitorCount', count);
+
+    const countElement = document.getElementById('visitor-count');
+    if (countElement) {
+        countElement.innerText = count.toLocaleString('ar-EG');
+    }
+});
 </script>
 
 </body>
