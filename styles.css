@@ -1,26 +1,27 @@
-/* خطوط وأساليب */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+/* خط رقعة */
+@import url('https://fonts.googleapis.com/css2?family=Ruqaa&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Cairo', sans-serif;
-  line-height: 1.8;
+  font-family: 'Ruqaa', serif;
   background-color: #fdfdfd;
   color: #222;
+  line-height: 1.8;
 }
 
 .container {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 1rem 0;
 }
 
 /* رأس الموقع */
 .site-header {
   background: linear-gradient(135deg, #4e54c8, #8f94fb);
   color: #fff;
-  padding: 2rem 1rem;
   text-align: center;
+  padding: 2rem 1rem;
 }
 
 .site-header h1 {
@@ -29,9 +30,9 @@ body {
 }
 
 .site-header .subtitle {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   opacity: 0.9;
+  margin-top: 0.5rem;
 }
 
 nav {
@@ -50,8 +51,12 @@ nav a:hover {
   color: #ffeb3b;
 }
 
-/* السيرة والمؤلفات والمقالات */
-.profile, .section {
+/* السيرة */
+.profile-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
   margin: 3rem 0;
   background: #fff;
   padding: 2rem;
@@ -59,24 +64,33 @@ nav a:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.profile .photo img {
+.profile-photo img {
   max-width: 250px;
   width: 100%;
   border-radius: 12px;
-  object-fit: cover;
   border: 4px solid #4e54c8;
+  object-fit: cover;
 }
 
-.profile .info h2 {
+.profile-info h2 {
   margin-top: 0;
   color: #4e54c8;
   font-size: 2rem;
 }
 
-.profile .info p {
-  margin-top: 1rem;
+.profile-info p {
   font-size: 1.1rem;
   color: #555;
+  margin-top: 1rem;
+}
+
+/* الأقسام */
+.section {
+  margin: 3rem 0;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
 .section h2 {
@@ -102,25 +116,6 @@ nav a:hover {
   color: #4e54c8;
 }
 
-/* معرض الصور */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.gallery img {
-  width: 30%;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
 /* التذييل */
 .site-footer {
   background-color: #4e54c8;
@@ -140,17 +135,8 @@ nav a:hover {
 
 /* استجابة الجوال */
 @media (max-width: 768px) {
-  .profile {
+  .profile-section {
     flex-direction: column;
     text-align: center;
-  }
-  .gallery img {
-    width: 45%;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery img {
-    width: 90%;
   }
 }
