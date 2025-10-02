@@ -475,5 +475,24 @@ nav a:focus::after {
 }
 .book-info .telegram-link:hover {
     background-color: #006da3; 
+   body {
+    font-family: var(--font-body);
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    background-color: var(--color-background);
+    direction: rtl;
+    padding-top: 5rem;
+    transition: background-color 0.3s, color 0.3s;
+    
+    /* منع التمدد الأفقي */
+    overflow-x: hidden; 
 }
-   
+
+html {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
