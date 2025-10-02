@@ -1,6 +1,0 @@
-[build]
-  publish = "_site"
-  command = "composer install && cecil build"
-[context.production.environment]
-  PHP_VERSION = "8.2" # لضمان استخدام إصدار حديث من PHP
-  
