@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vbhbv.github.io/Mjwll/sitemap.xml
