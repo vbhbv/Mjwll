@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: vhbhv/Mjwll # مسار مستودعك تم تحديده
+  branch: main
+media_folder: "static/images"
+public_folder: "/images"
+collections:
+  - name: "posts"
+    label: "مقالات ثقافية"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "التاريخ", name: "date", widget: "datetime"}
+      - {label: "ملخص/وصف", name: "description", widget: "text"}
+      - {label: "محتوى المقال", name: "body", widget: "markdown"}
+      
