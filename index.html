@@ -150,6 +150,10 @@
     </aside>
   </div> </main>
 
+            </aside>
+    </div>
+</main>
+
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="social-icons">
@@ -170,36 +174,36 @@
             </p>
         </div>
     </footer>
-  
-// 1. عداد زوار بسيط وعصري
+
+<script>
 document.addEventListener('DOMContentLoaded', () => {
+    // عداد زوار بسيط و عصري
     let count = parseInt(localStorage.getItem('visitorCount') || '0', 10);
     count++;
     localStorage.setItem('visitorCount', count);
-
+    
     const countElement = document.getElementById('visitor-count');
-    if (countElement) {
-        countElement.innerText = count.toLocaleString('ar-EG');
+    if (countElement) { 
+        countElement.innerText = count.toLocaleString('ar-EG'); 
     }
-});
-
-// 2. كود قائمة التنقل (Hamburger Menu)
-document.addEventListener('DOMContentLoaded', () => {
+    
+    // كود قائمة التنقل (Hamburger Menu)
     const toggleButton = document.querySelector('.menu-toggle');
     const mainNav = document.getElementById('main-nav');
-
+    
     if (toggleButton && mainNav) {
         toggleButton.addEventListener('click', () => {
             const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
-            
             toggleButton.setAttribute('aria-expanded', !isExpanded);
-            mainNav.classList.toggle('is-open');
+            mainNav.classList.toggle('active');
         });
-        // إغلاق القائمة عند النقر على رابط (لتحسين تجربة الجوال)
-        mainNav.querySelectorAll('a').forEach(link => {
+
+        // إغلاق القائمة بعد الضغط على أي رابط
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (mainNav.classList.contains('is-open')) {
-                    mainNav.classList.remove('is-open');
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
                     toggleButton.setAttribute('aria-expanded', 'false');
                 }
             });
@@ -207,6 +211,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-
 </body>
 </html>
