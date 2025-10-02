@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/index.html</loc>
+        <lastmod>2025-10-02</lastmod> 
+        <changefreq>daily</changefreq> 
+        <priority>1.0</priority> 
+        
+        <image:image>
+            <image:loc>https://vbhbv.github.io/Mjwll/images/author.jpg</image:loc>
+            <image:caption>صورة الكاتب مجول شعلان الحيالي</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://vbhbv.github.io/Mjwll/images/book1.jpg</image:loc>
+            <image:caption>غلاف كتاب المدينة الفاضلة الحديثة</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://vbhbv.github.io/Mjwll/images/book2.jpg</image:loc>
+            <image:caption>غلاف كتاب بعثرات فلسفية</image:caption>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/article1.html</loc>
+        <lastmod>2025-08-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/article2.html</loc>
+        <lastmod>2025-07-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/article3.html</loc>
+        <lastmod>2025-07-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/article4.html</loc>
+        <lastmod>2025-06-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/article5.html</loc>
+        <lastmod>2025-06-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/news1.html</loc>
+        <lastmod>2025-09-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/news2.html</loc>
+        <lastmod>2025-08-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/about.html</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/all-articles.html</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/all-books.html</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+</urlset>
