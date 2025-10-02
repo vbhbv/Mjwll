@@ -1,74 +1,17 @@
-/*
- * 1.0 - قواعد عامة للاستجابة
- * تم حذف أي قاعدة min-width تسبب تمدد أفقي
- *
- * */
+html, body {
+    overflow-x: hidden !important; 
+    width: 100% !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
-/* جعل جميع الصور مستجيبة (لا تتجاوز عرض الشاشة) */
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100% !important; 
+    height: auto !important;
 }
 
-/* * 1.1 - تعديل الحاوية الرئيسية (Container)
- * الحد من الـ padding الجانبي لمنع الشعور بالضخامة
- * */
 .container {
-    /* تحديد عرض أقصى للكمبيوتر، لكن على الهاتف لا يؤثر سلباً */
-    max-width: 1200px; 
-    margin: 0 auto; /* توسيط الحاوية على الشاشات الكبيرة */
-    
-    /* تقليل الـ padding (المسافة الداخلية) الجانبية على جميع الأجهزة */
-    padding-left: 15px;
-    padding-right: 15px; 
-}
-
-
-/*
- * 1.2 - تعديل صورة الملف الشخصي
- * */
-.profile-photo {
-    text-align: center;
-}
-.profile-photo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%; /* إذا كنت تريدها دائرة */
-}
-
-/*
- * 1.3 - تنسيق الأغلفة/البطاقات (Book Cards)
- * */
-.works-list {
-    display: flex;
-    flex-wrap: wrap; /* تسمح للعناصر بالنزول لسطر جديد */
-    justify-content: center;
-    gap: 10px; /* تقليل المسافة بين البطاقات إلى 10 بكسل */
-}
-
-.book-card {
-    /* * **مفتاح الحل لتصغير حجم الغلاف على الهاتف**
-     * نستخدم max-width لتحديد أقصى حجم، ونستخدم width: 95% لضمان ترك فراغ جانبي
-     */
-    width: 95%; 
-    max-width: 350px; 
-    
-    margin: 10px auto; /* إضافة مسافة عمودية وتوسيط */
-    padding: 15px; /* حشوة داخلية للبطاقة */
-    /* ... أي تنسيق خلفية أو حدود آخر للبطاقة ... */
-}
-
-/*
- * 1.4 - استعلام الوسائط (Media Query) لتنسيق الأجهزة الأصغر من 768px
- * */
-@media (max-width: 768px) {
-    /*
-     * يمكنك هنا وضع قواعد خاصة إضافية إذا لزم الأمر،
-     * لكن القواعد أعلاه كافية لحل مشكلة الحجم.
-     */
-
-    /* مثال: إخفاء الشريط الجانبي على الهاتف */
-    #sidebar {
-        display: none;
-    }
+    width: 100% !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
