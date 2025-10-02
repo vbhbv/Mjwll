@@ -1,0 +1,5 @@
+{
+    "require": {
+        "cecil/cecil": "^7.0"
+    }
+}
