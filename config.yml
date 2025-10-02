@@ -1,6 +1,0 @@
-# إعدادات Cecil (في جذر المشروع)
-title: موقعي الثقافي
-baseurl: https://fascinating-mermaid-fff115.netlify.app/
-language: ar
-theme: default 
-content: .  # هذا يحل مشكلة البناء
