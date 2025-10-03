@@ -1,20 +1,21 @@
 /* ========================================================= */
-/* 1. الإعدادات الأساسية ومتغيرات CSS (Variables & Reset)    */
+/* 0. الخطوط والإعدادات الأساسية (Variables & Fonts)        */
 /* ========================================================= */
 
-/* استخدام خط Ruqaa للنص، وخط Changa للعناوين */
+/* استيراد الخطوط (يجب أن يتم هذا في الـ HTML أو في بداية ملف CSS) */
 @import url('https://fonts.googleapis.com/css2?family=Ruqaa:wght@400;700&family=Changa:wght@600;800&display=swap');
 
 :root {
     /* نظام الألوان الأساسي */
-    --color-primary: #4e54c8; /* الأزرق البنفسجي (اللون الرئيسي) */
-    --color-secondary: #8f94fb; /* تدرج أفتح */
-    --color-accent: #ffeb3b; /* الأصفر البراق (لون التمييز/Hover) */
+    --color-primary: #4e54c8; /* الأزرق البنفسجي الغامق */
+    --color-secondary: #8f94fb; /* تدرج أفتح للخلفيات */
+    --color-accent: #ffeb3b; /* الأصفر البراق (للتمييز) */
     --color-text-dark: #343a40; 
     --color-text-light: #fff;
     --color-background: #f8f9fa; 
     --color-card-bg: #ffffff;
     --color-shadow: rgba(0, 0, 0, 0.1); 
+    
     --font-heading: 'Changa', sans-serif;
     --font-body: 'Ruqaa', serif;
     --spacing-unit: 1.5rem;
@@ -37,8 +38,15 @@ body {
     padding-top: 5rem; /* مساحة لرأس الصفحة الثابت */
     overflow-x: hidden;
 }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-/* الأنماط العامة */
+/* ========================================================= */
+/* 1. الأنماط العامة والمُساعدة (Utility & Typography)        */
+/* ========================================================= */
+
 .container {
     width: 92%;
     max-width: 1200px;
@@ -67,7 +75,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-secondary);
+    color: var(--color-accent); /* استخدام لون التمييز عند التحويم */
 }
 
 /* الأزرار (Buttons) */
@@ -86,7 +94,7 @@ a:hover {
 
 .btn-primary {
     background-color: var(--color-primary);
-    color: var(--color-text-light) !important; /* مهم override اللون */
+    color: var(--color-text-light) !important;
 }
 
 .btn-primary:hover {
@@ -122,6 +130,9 @@ a:hover {
     color: var(--color-text-light);
     margin: 0;
     line-height: 1.2;
+}
+.subtitle {
+    display: none;
 }
 
 /* تنسيق شريط التنقل على الكمبيوتر */
@@ -164,13 +175,13 @@ nav a:hover::after {
     cursor: pointer;
 }
 
-/* --------------------------------------------------- */
-/* 3. تخطيط Grid الرئيسي وتصميم البطاقات (Main & Cards) */
-/* --------------------------------------------------- */
+/* ========================================================= */
+/* 3. التخطيط الرئيسي وأقسام المحتوى (Main Layout & Sections) */
+/* ========================================================= */
 
 .content-wrapper {
     display: grid;
-    grid-template-columns: 3fr 1fr; /* 3/4 للمحتوى، 1/4 للشريط الجانبي */
+    grid-template-columns: 3fr 1fr;
     gap: 3rem;
     margin-top: 2rem;
 }
@@ -196,7 +207,7 @@ nav a:hover::after {
 .profile-photo img {
     max-width: 220px;
     width: 100%;
-    border-radius: 50%; 
+    border-radius: 50%; /* صورة دائرية عصرية */
     border: 5px solid var(--color-primary);
     object-fit: cover;
     transition: transform 0.5s;
@@ -208,7 +219,7 @@ nav a:hover::after {
 }
 
 /* -------------------------------------------------------- */
-/* 4. تنسيق بطاقات المؤلفات (Book Cards) - مُصحَّح ومُنظَّم */
+/* 4. تنسيق بطاقات المؤلفات (Book Cards) - مُنظَّم وفعال    */
 /* -------------------------------------------------------- */
 
 .works-list {
@@ -260,38 +271,14 @@ nav a:hover::after {
 .book-info .download-link {
     background-color: var(--color-primary);
 }
-.book-info .download-link:hover {
-    background-color: #3b42a8;
-}
 
 .book-info .telegram-link {
     background-color: #0088cc; 
 }
-.book-info .telegram-link:hover {
-    background-color: #006da3; 
-}
 
-/* تنسيق قوائم المقالات المصغرة */
-.article-list {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-}
-
-.article-preview {
-    background-color: #fafafa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-right: 4px solid var(--color-primary);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
-}
-
-/* ------------------------------------------------ */
-/* 5. الشريط الجانبي والتذييل (Sidebar & Footer)    */
-/* ------------------------------------------------ */
+/* -------------------------------------------------------- */
+/* 5. الشريط الجانبي والتذييل (Sidebar & Footer)             */
+/* -------------------------------------------------------- */
 
 .sidebar ul {
     list-style: none;
@@ -311,12 +298,17 @@ nav a:hover::after {
     margin-top: 4rem;
 }
 
+.site-footer a {
+    color: var(--color-accent);
+}
+
 /* -------------------------------------------------------- */
 /* 6. الاستجابة (Media Queries) - الهواتف والأجهزة اللوحية  */
 /* -------------------------------------------------------- */
 
 @media (max-width: 992px) {
     .content-wrapper {
+        /* تحويل Grid إلى عمود واحد على الأجهزة اللوحية */
         grid-template-columns: 1fr;
     }
 
@@ -329,11 +321,11 @@ nav a:hover::after {
 @media (max-width: 768px) {
     
     body {
-        padding-top: 7rem; 
+        padding-top: 7rem; /* زيادة المسافة للرأس الثابت */
     }
 
     .menu-toggle {
-        display: block;
+        display: block; /* إظهار زر الهامبرغر */
     }
     
     nav {
@@ -358,6 +350,6 @@ nav a:hover::after {
     }
     
     nav a::after {
-        content: none; 
+        content: none; /* إلغاء تأثير الخط الأفقي في وضع الجوال */
     }
 }
