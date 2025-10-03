@@ -1,26 +1,27 @@
-/* ---------------------------------
-   1. الإعدادات الأساسية ومتغيرات CSS (Variables & Reset)
---------------------------------- */
-/* استخدام خط Ruqaa للنص، وخط Changa للعناوين لتباين أفضل */
+/* ========================================================= */
+/* 1. الإعدادات الأساسية ومتغيرات CSS (Variables & Reset)    */
+/* ========================================================= */
+
+/* استخدام خط Ruqaa للنص، وخط Changa للعناوين */
 @import url('https://fonts.googleapis.com/css2?family=Ruqaa:wght@400;700&family=Changa:wght@600;800&display=swap');
 
 :root {
-    /* نظام الألوان الأساسي (مستوحى من الألوان الأصلية) */
+    /* نظام الألوان الأساسي */
     --color-primary: #4e54c8; /* الأزرق البنفسجي (اللون الرئيسي) */
     --color-secondary: #8f94fb; /* تدرج أفتح */
     --color-accent: #ffeb3b; /* الأصفر البراق (لون التمييز/Hover) */
-    --color-text-dark: #343a40; /* رمادي داكن للنص */
+    --color-text-dark: #343a40; 
     --color-text-light: #fff;
-    --color-background: #f8f9fa; /* خلفية ناصعة */
+    --color-background: #f8f9fa; 
     --color-card-bg: #ffffff;
-    --color-shadow: rgba(0, 0, 0, 0.1); /* ظل أنيق وناعم */
+    --color-shadow: rgba(0, 0, 0, 0.1); 
     --font-heading: 'Changa', sans-serif;
     --font-body: 'Ruqaa', serif;
     --spacing-unit: 1.5rem;
     --border-radius: 12px;
 }
 
-/* إعادة ضبط عصرية (Box Sizing) */
+/* إعادة ضبط عصرية ومنع التمدد الأفقي */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -34,13 +35,10 @@ body {
     background-color: var(--color-background);
     direction: rtl;
     padding-top: 5rem; /* مساحة لرأس الصفحة الثابت */
-    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
 }
 
-/* ---------------------------------
-   2. الأنماط العامة والخطوط (Typography & Utility)
---------------------------------- */
-
+/* الأنماط العامة */
 .container {
     width: 92%;
     max-width: 1200px;
@@ -59,7 +57,7 @@ h2 {
     font-size: 2rem;
     padding-bottom: 0.5rem;
     margin-bottom: calc(1.5 * var(--spacing-unit));
-    border-bottom: 2px solid var(--color-secondary); /* خط فاصل مميز */
+    border-bottom: 2px solid var(--color-secondary);
 }
 
 a {
@@ -70,7 +68,6 @@ a {
 
 a:hover {
     color: var(--color-secondary);
-    text-decoration: none;
 }
 
 /* الأزرار (Buttons) */
@@ -89,7 +86,7 @@ a:hover {
 
 .btn-primary {
     background-color: var(--color-primary);
-    color: var(--color-text-light);
+    color: var(--color-text-light) !important; /* مهم override اللون */
 }
 
 .btn-primary:hover {
@@ -97,25 +94,15 @@ a:hover {
     transform: translateY(-2px);
 }
 
-.btn-secondary {
-    background-color: var(--color-background);
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-}
-
-/* ---------------------------------
-   3. رأس الموقع وقائمة التنقل (Header & Navigation)
---------------------------------- */
+/* ------------------------------------------------ */
+/* 2. رأس الموقع وقائمة التنقل (Header & Navigation) */
+/* ------------------------------------------------ */
 
 .site-header {
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     color: var(--color-text-light);
     padding: 1rem 0;
+    position: fixed; 
     top: 0;
     left: 0;
     right: 0;
@@ -127,17 +114,14 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* للسماح بتنظيم العناصر على الهواتف */
+    flex-wrap: wrap; 
 }
 
 .site-header h1 {
     font-size: 1.8rem;
     color: var(--color-text-light);
     margin: 0;
-}
-
-.subtitle {
-    display: none; /* إخفاء النص الفرعي في شاشة الكمبيوتر */
+    line-height: 1.2;
 }
 
 /* تنسيق شريط التنقل على الكمبيوتر */
@@ -167,26 +151,29 @@ nav a::after {
     transition: width 0.3s ease-out;
 }
 
-nav a:hover::after,
-nav a:focus::after {
+nav a:hover::after {
     width: 100%;
 }
 
-/* ---------------------------------
-   4. تخطيط Grid الرئيسي (Main Content Layout)
---------------------------------- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------- */
+/* 3. تخطيط Grid الرئيسي وتصميم البطاقات (Main & Cards) */
+/* --------------------------------------------------- */
 
 .content-wrapper {
-    /* استخدام CSS Grid لتخطيط احترافي */
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 1fr; /* 3/4 للمحتوى، 1/4 للشريط الجانبي */
     gap: 3rem;
     margin-top: 2rem;
 }
-
-/* ---------------------------------
-   5. الأقسام وتصميم البطاقات (Sections & Cards)
---------------------------------- */
 
 .section {
     background: var(--color-card-bg);
@@ -203,56 +190,108 @@ nav a:focus::after {
     flex-wrap: wrap;
     gap: 2.5rem;
     align-items: center;
-    margin: 3rem 0;
+    margin: 3rem 0; 
 }
 
 .profile-photo img {
     max-width: 220px;
     width: 100%;
-    border-radius: 50%; /* صورة دائرية عصرية */
+    border-radius: 50%; 
     border: 5px solid var(--color-primary);
     object-fit: cover;
     transition: transform 0.5s;
 }
 
-.profile-photo img:hover {
-    transform: scale(1.05) rotate(1deg); /* تأثير تحويل بسيط */
+.profile-bio p {
+    font-size: 1.1em;
+    text-align: justify;
 }
 
-/* تصميم قوائم الكتب والمقالات باستخدام Grid */
-.book-list, .article-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid مستجيب مرن */
-    gap: 2rem;
+/* -------------------------------------------------------- */
+/* 4. تنسيق بطاقات المؤلفات (Book Cards) - مُصحَّح ومُنظَّم */
+/* -------------------------------------------------------- */
+
+.works-list {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 30px; 
+    margin-top: 30px;
+    justify-content: center; 
     list-style: none;
+    padding: 0;
 }
 
-.book-item, .article-preview {
+.book-card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    text-align: center;
+}
+
+.book-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-image img {
+    width: 100%; 
+    max-height: 400px; 
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.book-info .action-link {
+    display: block; 
+    margin-top: 8px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white !important; 
+    transition: background-color 0.3s;
+}
+
+.book-info .download-link {
+    background-color: var(--color-primary);
+}
+.book-info .download-link:hover {
+    background-color: #3b42a8;
+}
+
+.book-info .telegram-link {
+    background-color: #0088cc; 
+}
+.book-info .telegram-link:hover {
+    background-color: #006da3; 
+}
+
+/* تنسيق قوائم المقالات المصغرة */
+.article-list {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.article-preview {
     background-color: #fafafa;
     padding: 1.5rem;
     border-radius: 8px;
     border-right: 4px solid var(--color-primary);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
 }
 
-.book-item:hover, .article-preview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.article-meta {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-top: 0.5rem;
-}
-
-/* ---------------------------------
-   6. الشريط الجانبي (Sidebar & Forms)
---------------------------------- */
-.sidebar .section {
-    padding: 1.5rem;
-}
+/* ------------------------------------------------ */
+/* 5. الشريط الجانبي والتذييل (Sidebar & Footer)    */
+/* ------------------------------------------------ */
 
 .sidebar ul {
     list-style: none;
@@ -264,28 +303,6 @@ nav a:focus::after {
     border-bottom: 1px dashed #ddd;
 }
 
-.newsletter-signup form {
-    margin-top: 1rem;
-}
-
-.newsletter-signup input[type="email"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-    border: 1px solid var(--color-secondary);
-    border-radius: 6px;
-    font-family: inherit;
-}
-
-.newsletter-signup .btn-subscribe {
-    width: 100%;
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-}
-
-/* ---------------------------------
-   7. التذييل (Footer)
---------------------------------- */
 .site-footer {
     background-color: var(--color-primary);
     color: var(--color-text-light);
@@ -294,18 +311,12 @@ nav a:focus::after {
     margin-top: 4rem;
 }
 
-.site-footer a {
-    color: var(--color-accent);
-}
+/* -------------------------------------------------------- */
+/* 6. الاستجابة (Media Queries) - الهواتف والأجهزة اللوحية  */
+/* -------------------------------------------------------- */
 
-/* ---------------------------------
-   8. الاستجابة (Media Queries) - الهواتف والأجهزة اللوحية
---------------------------------- */
-
-/* شاشات الأجهزة اللوحية (Tablet and smaller desktops) */
 @media (max-width: 992px) {
     .content-wrapper {
-        /* تحويل Grid إلى عمود واحد */
         grid-template-columns: 1fr;
     }
 
@@ -315,251 +326,38 @@ nav a:focus::after {
     }
 }
 
-/* شاشات الهواتف المحمولة (Mobile Devices) */
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     
     body {
-        padding-top: 7rem; /* زيادة المسافة العلوية لاستيعاب الهيدر الجديد */
+        padding-top: 7rem; 
     }
 
-    /* إظهار زر الهامبرغر وإخفاء القائمة الأصلية */
     .menu-toggle {
         display: block;
-        color: var(--color-accent);
-    }
-    .subtitle {
-        display: none;
     }
     
     nav {
-        /* إخفاء القائمة افتراضياً على الهواتف */
-        order: 3; /* دفع القائمة لأسفل الهيدر */
+        order: 3; 
         width: 100%;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-out;
     }
 
-    /* تنسيق قائمة الجوال المفتوحة */
     nav.is-open {
         max-height: 400px;
-        background-color: rgba(78, 84, 200, 0.95); /* خلفية شبه شفافة للقائمة */
+        background-color: rgba(78, 84, 200, 0.95); 
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
         padding: 1rem 0;
+        gap: 0;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
-
-    nav a {
-        padding: 0.75rem 0;
-        width: 100%;
-        display: block;
-    }
     
-    /* إلغاء تأثير الخط الأفقي في وضع الجوال */
     nav a::after {
-        content: none;
-    }
-    
-    /* تنسيق زر الهامبرغر نفسه */
-    .menu-toggle {
-        display: block;
-    }
-    .hamburger-icon,
-    .hamburger-icon::before,
-    .hamburger-icon::after {
-        background-color: var(--color-accent);
-       /* ================================== */
-/* اصلاح تصميم رأس الصفحة (Header)  */
-/* ================================== */
-
-/* 1. إزالة أي حشوات أو هوامش زائدة من العنوان الرئيسي */
-.site-header {
-    /* التأكد من أن الخلفية الزرقاء تمتد بشكل صحيح */
-    width: 100%;
-    /* إزالة الهوامش من أعلى وأسفل */
-    margin: 0; 
-    /* إزالة أي حشوات داخلية قد تسبب المربع العريض */
-    padding: 0; 
-}
-
-/* 2. التحكم في حاوية المحتوى داخل العنوان */
-.container-header-content {
-    /* التأكد من أن العنوان يأخذ كامل العرض المتاح له */
-    width: 100%;
-    /* تقليل الحشوات الرأسية حول العنوان */
-    padding: 15px 10px; 
-    /* توسيط المحتوى الأفقي */
-    text-align: center; 
-}
-
-/* 3. تعديل العنوان نفسه (h1) */
-.site-header h1 {
-    /* إزالة الهوامش الافتراضية للـ h1 */
-    margin: 0; 
-    padding: 0;
-    /* التأكد من أن النص يظهر بشكل سليم */
-    font-size: 2em; 
-    line-height: 1.2;
-
-.book-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-/* ================================== */
-/* تنسيق بطاقات المؤلفات (Book Cards) */
-/* ================================== */
-
-/* 1. تنسيق الحاوية لتنظيم البطاقات جنبًا إلى جنب */
-.works-list {
-    display: flex; /* هذا هو المفتاح لجعل البطاقات جنبًا إلى جنب */
-    flex-wrap: wrap; 
-    gap: 30px; 
-    margin-top: 30px;
-    justify-content: center; 
-}
-
-/* 2. تنسيق البطاقة الواحدة */
-.book-card {
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 15px;
-    width: 300px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-align: center;
-}
-.book-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* 3. تنسيق صورة الغلاف (مهم لظهور الصور بالشكل الصحيح) */
-.book-image img {
-    width: 100%; 
-    max-height: 400px; 
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 10px;
-}
-
-/* 4. تنسيق أزرار الإجراءات (التحميل والتليجرام) */
-.book-info .action-link {
-    display: block; 
-    margin-top: 8px;
-    padding: 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9em;
-    font-weight: bold;
-    color: white; 
-    transition: background-color 0.3s;
-}
-
-/* تنسيق زر التحميل */
-.book-info .download-link {
-    background-color: #5b6de2; 
-}
-.book-info .download-link:hover {
-    background-color: #4a5bd1;
-}
-
-/* تنسيق زر التليجرام */
-.book-info .telegram-link {
-    background-color: #0088cc; 
-}
-.book-info .telegram-link:hover {
-    background-color: #006da3; 
-   body {
-    font-family: var(--font-body);
-    line-height: 1.8;
-    color: var(--color-text-dark);
-    background-color: var(--color-background);
-    direction: rtl;
-    padding-top: 5rem;
-    transition: background-color 0.3s, color 0.3s;
-    
-    /* منع التمدد الأفقي */
-    overflow-x: hidden; 
-}
-
-html {
-    overflow-x: hidden;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-/* ================================== */
-/* 7. تنسيق المحتوى الداخلي (الصفحات الفرعية: About, Articles) */
-/* ================================== */
-
-/* تنسيق القسم العام للسيرة (Full Bio Section) */
-.bio-section {
-    padding: 30px 0;
-    margin-bottom: 30px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* تنسيق العناوين داخل السيرة */
-.bio-section h2, .bio-section h3 {
-    color: #4a5bd1; /* اللون الأزرق الأساسي */
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-/* تنسيق نصوص الفقرات */
-.bio-details p {
-    line-height: 1.8; /* مسافة أسطر مريحة للقراءة */
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.05em;
-}
-
-/* تنسيق القوائم النقطية (Lists) */
-.bio-details ul {
-    list-style: disc inside;
-    padding-right: 20px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.bio-details ul li {
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-/* تنسيق الأزرار في صفحة السيرة (إذا استخدمت) */
-.contact-bio-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    background-color: #5b6de2; /* أزرق */
-    color: white;
-    transition: background-color 0.3s;
-}
-
-.contact-bio-btn:hover {
-    background-color: #4a5bd1;
-}
-
-/* لضمان التجاوب على الهاتف: النصوص يجب أن تكون جيدة القراءة */
-@media (max-width: 768px) {
-    .bio-details p {
-        font-size: 1em;
-    }
-    .bio-section {
-        padding: 20px 15px;
+        content: none; 
     }
 }
-   
