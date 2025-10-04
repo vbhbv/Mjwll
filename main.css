@@ -2,23 +2,21 @@
 /* 0. الخطوط والإعدادات الأساسية (Variables & Fonts)        */
 /* ========================================================= */
 
-/* تم استبدال خط Ruqaa بخط Amiri (serif) ليتناسب مع الثقافة والفلسفة */
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@300;500;700&family=Amiri:wght@400;700&display=swap');
 
 :root {
-    /* لوحة الألوان الجديدة: عميقة وهادئة */
-    --color-primary: #1e3a8a; /* أزرق داكن عميق للعناوين والأزرار الرئيسية */
-    --color-secondary: #0f172a; /* خلفية داكنة (ليست سوداء كلياً) */
-    --color-accent: #fcd34d; /* أصفر ذهبي للتمييز والتأكيد */
+    --color-primary: #1e3a8a;
+    --color-secondary: #0f172a;
+    --color-accent: #fcd34d;
     --color-text-dark: #334155; 
-    --color-text-light: #f1f5f9; /* لون النص الفاتح على الخلفية الداكنة */
-    --color-background: #f8fafc; /* خلفية فاتحة هادئة للمحتوى الرئيسي */
+    --color-text-light: #f1f5f9;
+    --color-background: #f8fafc;
     --color-card-bg: #ffffff;
     --color-border: #e2e8f0;
     --color-shadow: rgba(30, 58, 138, 0.1); 
     
     --font-heading: 'Changa', sans-serif;
-    --font-body: 'Amiri', serif; /* خط عربي تقليدي للقراءة الفلسفية */
+    --font-body: 'Amiri', serif;
     --spacing-unit: 1.5rem;
     --border-radius: 8px;
 }
@@ -32,12 +30,13 @@
 
 body {
     font-family: var(--font-body);
-    line-height: 1.9; /* زيادة ارتفاع السطر لتحسين قراءة النصوص الطويلة */
+    line-height: 1.9;
     color: var(--color-text-dark);
     background-color: var(--color-background);
     direction: rtl;
-    padding-top: 5.5rem; /* مسافة للرأس الثابت */
-    overflow-x: hidden;
+    padding-top: 5.5rem;
+    /* 🛠️ تعديل مهم: منع التمرير الأفقي الزائد */
+    overflow-x: hidden; 
     scroll-behavior: smooth;
 }
 
@@ -86,7 +85,7 @@ a:hover {
 .btn {
     display: inline-block;
     padding: 0.75rem 1.8rem;
-    border-radius: 50px; /* شكل بيضاوي حديث */
+    border-radius: 50px;
     font-weight: 500;
     text-align: center;
     transition: all 0.3s ease;
@@ -159,6 +158,8 @@ a:hover {
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    /* 🛠️ تعديل مهم: منع ظهور الشريط الأصفر الزائد في الرأس */
+    overflow-x: hidden; 
 }
 
 .header-grid {
@@ -248,7 +249,7 @@ nav a:hover::after {
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 20px var(--color-shadow);
-    border-top: 4px solid var(--color-primary); /* خط مميز */
+    border-top: 4px solid var(--color-primary);
     margin-bottom: 2rem;
 }
 
@@ -317,7 +318,7 @@ nav a:hover::after {
 }
 
 .book-card {
-    flex: 1 1 350px; /* مرونة في العرض */
+    flex: 1 1 350px;
     max-width: 400px;
     display: flex;
     flex-direction: column;
@@ -356,7 +357,7 @@ nav a:hover::after {
     display: flex;
     gap: 10px;
     margin-top: 1rem;
-    margin-top: auto; /* يدفع الروابط للأسفل */
+    margin-top: auto;
 }
 
 .action-link {
@@ -378,7 +379,7 @@ nav a:hover::after {
 }
 
 .link-telegram {
-    background-color: #0088cc; /* لون تيليجرام */
+    background-color: #0088cc;
 }
 .link-telegram:hover {
     background-color: #006da8;
@@ -493,13 +494,13 @@ nav a:hover::after {
 
 @media (max-width: 1100px) {
     .content-wrapper {
-        grid-template-columns: 2fr 1.5fr; /* تعديل طفيف */
+        grid-template-columns: 2fr 1.5fr;
         gap: 2rem;
     }
 }
 
 @media (max-width: 992px) {
-    /* تكييف الـ Hero Section */
+    /* 🛠️ تعديل لتصغير الصورة والخطوط على الأجهزة اللوحية */
     .hero-profile {
         border-right: none;
         border-top: 8px solid var(--color-accent);
@@ -509,11 +510,23 @@ nav a:hover::after {
         text-align: center;
         padding: 2rem 1rem;
     }
+    
     .profile-photo {
+        width: 180px; /* تصغير حجم الصورة */
+        height: 180px; 
+        border-width: 4px;
+        box-shadow: 0 0 0 6px var(--color-accent);
         margin-bottom: 1.5rem;
     }
+
+    .intro-p {
+        font-size: 1.05rem; /* تصغير الخط التمهيدي */
+        line-height: 1.8;
+    }
+    
     .profile-actions {
         justify-content: center;
+        gap: 0.8rem; /* تقليل المسافة بين الأزرار */
     }
     
     /* تحويل التخطيط الرئيسي لعمود واحد */
@@ -521,30 +534,46 @@ nav a:hover::after {
         grid-template-columns: 1fr;
     }
     .sidebar {
-        order: -1; /* وضع الشريط الجانبي في الأعلى في الجوال */
+        order: -1;
         padding-top: 0;
     }
     .works-grid {
         justify-content: space-around;
     }
+    
+    /* تصغير العناوين في هذا النطاق */
+    h2 {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
+    /* 🛠️ تعديلات مهمة لتصغير العرض على الجوالات الصغيرة */
+    
     h2 {
         font-size: 1.8rem;
     }
+    
+    /* تصغير خط الرأس ليتناسب مع العرض الصغير */
+    .logo-link h1 {
+        font-size: 1.4rem; 
+    }
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
     /* قائمة التنقل (Mobile Menu) */
     .menu-toggle {
         display: block; 
     }
     
     .header-grid {
-        grid-template-columns: auto auto; /* إخفاء القائمة في الصف الرئيسي */
+        grid-template-columns: auto auto;
         justify-content: space-between;
     }
 
     nav {
-        display: none; /* إخفاء القائمة بشكل افتراضي */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -556,7 +585,7 @@ nav a:hover::after {
     }
     
     nav.active {
-        display: block; /* إظهار القائمة عند تفعيلها بالـ JS */
+        display: block;
     }
 
     nav ul {
@@ -570,7 +599,7 @@ nav a:hover::after {
         font-size: 1.1rem;
     }
     nav a::after {
-        content: none; /* إلغاء التأثير الأفقي في الجوال */
+        content: none;
     }
     
     /* التذييل */
