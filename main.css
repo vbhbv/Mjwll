@@ -1,6 +1,5 @@
 /* ==================== 0. المتغيرات الأساسية (CSS Variables) ==================== */
 :root {
-    /* 💥 تم التعديل: تغيير أسماء الألوان لتعكس هوية الموقع الفكرية */
     --primary-color: #1a4d2e; /* أخضر غامق وزيتوني (لون فكري عميق) */
     --secondary-color: #ff9f1c; /* برتقالي/ذهبي (لون الثقافة والتركيز) */
     --text-dark: #2c3e50; /* لون النص الرئيسي */
@@ -29,6 +28,30 @@ body {
     /* 💥 الحل القاطع لعدم التجاوب والميل */
     overflow-x: hidden !important; 
 }
+
+/* تنسيقات الوضع الليلي (Dark Mode) */
+body.dark-mode {
+    background-color: #1e293b; 
+    color: #f1f5f9; 
+}
+body.dark-mode .card-style {
+    background-color: #334155;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+body.dark-mode .magazine-title {
+    color: var(--secondary-color);
+}
+body.dark-mode a {
+    color: #93c5fd; /* أزرق فاتح للروابط في الوضع الليلي */
+}
+body.dark-mode .text-dark {
+    color: #f1f5f9;
+}
+body.dark-mode .main-header {
+    background-color: #1e293b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 
 .container {
     width: 90%;
@@ -105,6 +128,11 @@ a:hover {
     align-items: center;
 }
 
+.logo-link {
+    display: flex;
+    flex-direction: column;
+}
+
 .magazine-title {
     font-family: var(--font-heading);
     font-size: 2.5em;
@@ -114,16 +142,19 @@ a:hover {
 
 .tagline {
     font-size: 0.9em;
-    color: #95a5a6;
-    margin-top: 5px;
-    /* 💥 تم التعديل: تذييل اسم الموقع */
     color: var(--secondary-color); 
+    margin-top: 5px;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-list {
     display: none; /* إخفاء افتراضي على الهاتف */
     list-style: none;
-    /* 💥 تعديل بسيط لتنظيم القائمة مع زر البحث/الثيم */
     display: flex; 
     align-items: center; 
     gap: 10px;
@@ -139,6 +170,9 @@ a:hover {
 .nav-list li a:hover {
     color: var(--secondary-color);
 }
+body.dark-mode .nav-list li a {
+    color: var(--text-light); 
+}
 
 .search-btn, .menu-toggle {
     background: none;
@@ -147,15 +181,17 @@ a:hover {
     font-size: 1.4em;
     cursor: pointer;
 }
+body.dark-mode .search-btn, body.dark-mode .menu-toggle {
+    color: var(--text-light);
+}
 
 /* القائمة على الهاتف (Menu Toggle) */
 .menu-toggle {
     display: block; /* إظهار زر القائمة على الهاتف */
 }
-/* 💥 إضافة كود إظهار القائمة على الجوال عند الضغط */
-.nav-list.active {
-    display: flex;
-    flex-direction: column;
+/* إضافة كود إظهار القائمة على الجوال عند الضغط */
+#main-nav.active {
+    display: block; /* لجعل عنصر nav يظهر */
     position: absolute;
     top: 100%;
     right: 0;
@@ -165,87 +201,74 @@ a:hover {
     z-index: 800;
     padding: 10px 0;
 }
-.nav-list.active li {
+body.dark-mode #main-nav.active {
+    background-color: #1e293b;
+}
+
+#main-nav .nav-list.active {
+    display: flex;
+    flex-direction: column;
+}
+#main-nav .nav-list.active li {
     width: 100%;
     text-align: center;
 }
-.nav-list.active li a {
+#main-nav .nav-list.active li a {
     display: block;
     padding: 10px 0;
     border-bottom: 1px solid #f4f4f4;
 }
+body.dark-mode #main-nav .nav-list.active li a {
+    border-bottom-color: #334155;
+}
 
 
-/* ==================== 3. قسم المقال المميز (Featured Article) - إصلاح وتطوير ==================== */
-#featured-article {
+/* ==================== 3. قسم الملف الشخصي (Hero) ==================== */
+#profile {
     margin: 40px 0;
 }
-
-.featured-grid {
-    display: flex; 
-    flex-direction: column; 
-    padding: 0;
-    overflow: hidden;
+.hero-profile {
+    padding: 40px;
 }
-
-.highlight-card {
+.profile-content {
     display: flex;
-    flex-direction: column;
-}
-
-.featured-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    order: 1; 
-}
-
-.content-box {
-    padding: 25px;
-    order: 2; 
-}
-
-.article-title-featured {
-    font-family: var(--font-heading);
-    font-size: 2em;
-    color: var(--primary-color);
-    margin: 15px 0;
-    line-height: 1.4;
-}
-
-.category-tag {
-    display: inline-block;
-    background-color: var(--secondary-color); 
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    font-weight: bold;
-}
-
-.excerpt {
-    color: #6c757d;
-    margin: 20px 0;
-}
-
-.meta-footer {
-    display: flex;
-    justify-content: space-between;
+    gap: 40px;
     align-items: center;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
+}
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 5px solid var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.profile-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.profile-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+.main-column {
+    /* هنا يظهر المحتوى الرئيسي */
+}
+.sidebar {
+    /* هنا يظهر الشريط الجانبي */
 }
 
-.author-meta {
-    font-size: 0.9em;
-    color: #95a5a6;
-}
-
-/* ==================== 4. قائمة المقالات (Latest Articles Grid) ==================== */
-#latest-articles {
-    padding-bottom: 50px;
-}
-
+/* ==================== 4. قائمة المقالات والأعمال ==================== */
 .section-title {
     font-family: var(--font-heading);
     font-size: 2.2em;
@@ -254,61 +277,112 @@ a:hover {
     padding-bottom: 10px;
     margin-bottom: 30px;
 }
+body.dark-mode .section-title {
+    color: var(--text-light);
+}
 
-.articles-grid {
+.works-grid {
     display: grid;
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 30px;
 }
-
-.article-card {
-    padding: 0;
-    overflow: hidden;
+.book-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px;
+}
+.book-cover {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.book-detail h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.5em;
+}
+.book-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+.action-link {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+.btn-tertiary {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: var(--primary-color) !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+.all-works-link {
+    text-align: center;
+    margin-top: 30px;
+}
+.article-preview {
+    padding: 15px 0;
+    border-bottom: 1px dashed #ddd;
+}
+body.dark-mode .article-preview {
+    border-bottom-color: #4a5568;
+}
+.article-preview:last-child {
+    border-bottom: none;
+}
+.article-preview time {
+    display: block;
+    font-size: 0.8em;
+    color: #999;
+    margin-bottom: 5px;
+}
+.article-preview h3 {
+    margin: 0;
+    font-size: 1.2em;
 }
 
-.article-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+
+/* ==================== 5. الشريط الجانبي (Sidebar) ==================== */
+.sidebar .card {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.card-title {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+.clean-list {
+    list-style: none;
+    padding: 0;
+}
+.clean-list li {
+    padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
-
-.card-content {
-    padding: 15px;
-}
-
-.article-title-card {
-    font-family: var(--font-heading);
-    font-size: 1.3em;
-    color: var(--text-dark);
-    margin-top: 10px;
+.newsletter-signup input {
+    width: 100%;
+    padding: 10px;
     margin-bottom: 10px;
-    line-height: 1.4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: right;
+    font-family: var(--font-body);
 }
 
-.article-title-card:hover {
-    color: var(--secondary-color);
-}
-
-.article-card .meta {
-    color: #999;
-    font-size: 0.85em;
-}
-
-.view-all-btn-container {
-    text-align: center;
-    margin-top: 40px;
-}
-
-
-/* ==================== 5. تذييل الموقع (Footer) ==================== */
+/* ==================== 6. تذييل الموقع (Footer) ==================== */
 .site-footer {
     background-color: var(--background-dark);
     color: var(--text-light);
     padding: 40px 0 10px;
 }
 
-.footer-grid {
+.footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
@@ -317,90 +391,162 @@ a:hover {
     border-bottom: 1px solid #4a637c;
 }
 
-.footer-title {
+.footer-block h4 {
     color: var(--secondary-color);
     font-family: var(--font-heading);
     font-size: 1.4em;
     margin-bottom: 15px;
 }
 
-.footer-about p, .footer-contact p {
+.footer-block p, .footer-block a {
     font-size: 0.9em;
     margin-bottom: 8px;
+    color: var(--text-light);
 }
 
-.social-links a {
+.footer-block a:hover {
+    color: var(--secondary-color);
+}
+
+.social-icons a {
     color: var(--text-light);
     font-size: 1.5em;
     margin-left: 20px;
 }
-
-.social-links a:hover {
+.social-icons a:hover {
     color: var(--secondary-color);
 }
 
-.copyright {
+.footer-bottom {
     text-align: center;
-    padding-top: 10px;
+}
+
+.footer-copyright {
     font-size: 0.8em;
     color: #95a5a6;
 }
 
-/* ==================== 6. استجابة الشاشات (Media Queries) ==================== */
+/* ==================== 7. استجابة الشاشات (Media Queries) ==================== */
 
-/* شاشات الأجهزة اللوحية (Tablet) */
-@media (min-width: 768px) {
+/* الأجهزة اللوحية - عرض أقل من 992px */
+@media (max-width: 991px) {
+    .content-wrapper {
+        grid-template-columns: 1fr; /* عمود واحد */
+        gap: 30px;
+    }
+    
+    .sidebar {
+        order: 99; /* يدفع الشريط الجانبي للأسفل بعد المحتوى الرئيسي */
+    }
+    
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+
+    .book-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .book-cover {
+        margin-bottom: 15px;
+    }
+    .book-links {
+        justify-content: center;
+    }
+}
+
+/* الجوالات - عرض أقل من 767px */
+@media (max-width: 767px) {
     .articles-grid {
-        grid-template-columns: repeat(2, 1fr); /* عمودان للمقالات */
+        grid-template-columns: 1fr;
+    }
+    .main-header {
+        padding: 10px 0;
+    }
+    .magazine-title {
+        font-size: 2em;
+    }
+    
+    /* إخفاء قائمة التنقل على الجوال (CSS Only) */
+    #main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 800;
+    }
+    #main-nav.active {
+        display: block;
+    }
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        gap: 0;
+    }
+    .nav-list li {
+        width: 100%;
+    }
+    .nav-list li a {
+        display: block;
+        padding: 12px 0;
     }
     
     .menu-toggle {
+        display: block;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .social-icons a {
+        margin: 0 10px;
+    }
+    .footer-nav a {
+        display: block;
+    }
+    
+    /* تنسيق زر تبديل الوضع (Dark Mode) */
+    #theme-toggle {
+        padding: 6px 12px; 
+        font-size: 12px;
+    }
+}
+
+/* شاشات سطح المكتب */
+@media (min-width: 768px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .menu-toggle {
         display: none;
     }
-    
     #main-nav {
-        /* 💥 تأكد أن عنصر nav الرئيسي لديه ID="main-nav" في HTML */
-        display: block !important; 
+        display: block !important;
     }
-
     .nav-list {
         display: flex;
-        justify-content: flex-end;
-    }
-}
-
-/* شاشات سطح المكتب (Desktop) */
-@media (min-width: 992px) {
-    .articles-grid {
-        grid-template-columns: repeat(3, 1fr); /* ثلاثة أعمدة للمقالات */
     }
     
-    /* تخطيط المقال المميز (الصورة والمحتوى بجانب بعض) */
-    .featured-grid {
-        display: grid; 
-        grid-template-columns: 2fr 1fr; /* المحتوى على اليمين والصورة على اليسار */
-        align-items: stretch;
-    }
-
-    .featured-img {
-        grid-column: 2 / 3; /* الصورة في العمود الأيسر */
-        order: initial; 
-        height: 100%; 
-    }
-
-    .content-box {
-        grid-column: 1 / 2; /* المحتوى في العمود الأيمن */
-        order: initial;
-    }
-
-    .article-title-featured {
-        font-size: 2.5em; 
+    @media (min-width: 992px) {
+        .articles-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }
 
-/* 💥 تمت إضافة تنسيق زر تبديل الوضع (Day/Night Mode) */
 #theme-toggle {
-    /* أساسيات التصميم */
     padding: 8px 15px; 
     border: 2px solid var(--primary-color); 
     border-radius: 20px; 
@@ -410,18 +556,9 @@ a:hover {
     font-size: 14px;
     font-weight: bold;
     transition: all 0.3s ease; 
-    margin-left: 10px; /* لتبعده عن قائمة التنقل */
+    margin-left: 10px; 
 }
-
-/* تنسيق الزر في الوضع الليلي */
 body.dark-mode #theme-toggle {
     border-color: #f4f4f4;
     color: #f4f4f4;
-}
-
-/* لتنظيم العناصر في الشريط العلوي (تم بالفعل بواسطة .header-grid) */
-.header-grid {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
 }
