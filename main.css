@@ -29,18 +29,20 @@
 }
 
 body {
-    font-family: var(--font-body);
-    line-height: 1.9;
-    color: var(--color-text-dark);
-    background-color: var(--color-background);
-    direction: rtl;
+    /* ... أكواد أخرى ... */
+    direction: rtl !important;
+    text-align: right;
+    
     padding-top: 5.5rem;
-    /* 🛠️ الحل القاطع لعدم التجاوب: فرض عرض شاشة الهاتف */
-    overflow-x: hidden !important; 
-    width: 100vw; /* 💥 هذا يجبر المتصفح على استخدام عرض الـ Viewport */
+    
+    /* 💥 الحل القاطع لعدم التجاوب: فرض عرض شاشة الهاتف */
+    overflow-x: hidden !important; /* فرض إخفاء أي تجاوز أفقي */
+    width: 100vw; /* هذا يجبر المتصفح على استخدام عرض الـ Viewport بالضبط */
+    margin: 0; /* ضمان عدم وجود أي هوامش خارجية إضافية */
+    
     scroll-behavior: smooth;
-}
-
+    }
+    
 img {
     max-width: 100%;
     height: auto;
