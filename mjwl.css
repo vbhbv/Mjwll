@@ -373,7 +373,24 @@ body.dark-mode .article-preview {
     border-radius: 4px;
     text-align: right;
     font-family: var(--font-body);
+/* ==================== تعديل الأيقونة في الشريط الجانبي ==================== */
+
+.sidebar h2 {
+    display: flex; /* لضمان أن الأيقونة والعنوان في نفس السطر */
+    align-items: center; /* لمحاذاة الأيقونة والنص عمودياً */
+    gap: 10px; /* لإضافة مسافة بسيطة بين الأيقونة والنص */
+    font-size: 1.3em;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 15px;
 }
+/* تنسيق خاص للأيقونة داخل العنوان */
+.sidebar h2 i {
+    flex-shrink: 0; /* هذا يضمن أن الأيقونة لن تنكمش أو تنزل إلى سطر آخر */
+    color: var(--secondary-color); /* يمكنك تغيير لون الأيقونة هنا */
+    font-size: 1.2em;
+}
+    
 
 /* ==================== 6. تذييل الموقع (Footer) ==================== */
 .site-footer {
