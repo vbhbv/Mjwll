@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     
+    <style>
+        html {
+            scroll-behavior: smooth; 
+        }
+    </style>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     
     <title>مجول شعلان الحيالي | الفكر، الفلسفة، والثقافة المعاصرة</title>
@@ -30,7 +36,7 @@
       "sameAs": [
         "https://www.facebook.com/share/1FcWBtfDGr/",
         "https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw",
-        "https://t.me/Mjwll"
+        "https://t.me/iiollr"
       ]
     }
     </script>
@@ -42,6 +48,8 @@
     </script>
 </head> 
 <body>
+
+<div id="progress-bar"></div>
 
 <header class="site-header" role="banner" data-aos="fade-down">
     <div class="container header-grid">
@@ -104,10 +112,10 @@
                             <h3>المدينة الفاضلة الحديثة</h3>
                             <p>دراسة معمقة في الفلسفة السياسية والاجتماعية لإعادة تصور المجتمع المثالي في العصر الرقمي.</p>
                             <div class="book-links">
-                                <a href="tg://resolve?domain=iiollr" target="_blank" class="action-link link-download">
+                                <a href="https://t.me/iiollr" target="_blank" class="action-link link-download">
                                     <i class="fa-solid fa-download"></i> تحميل (PDF)
                                 </a>
-                                <a href="tg://resolve?domain=iiollr" target="_blank" class="action-link link-telegram">
+                                <a href="https://t.me/iiollr" target="_blank" class="action-link link-telegram">
                                     <i class="fab fa-telegram-plane"></i> قناة التليجرام
                                 </a>
                             </div>
@@ -120,10 +128,10 @@
                             <h3>بعثرات فلسفية</h3>
                             <p>مجموعة من المقالات والأفكار المبعثرة التي تعكس رؤية معاصرة ومختلفة في القضايا الفلسفية والوجودية.</p>
                             <div class="book-links">
-                                <a href="tg://resolve?domain=iiollr" target="_blank" class="action-link link-download">
+                                <a href="https://t.me/iiollr" target="_blank" class="action-link link-download">
                                     <i class="fa-solid fa-download"></i> تحميل (PDF)
                                 </a>
-                                <a href="tg://resolve?domain=iiollr" target="_blank" class="action-link link-telegram">
+                                <a href="https://t.me/iiollr" target="_blank" class="action-link link-telegram">
                                     <i class="fab fa-telegram-plane"></i> قناة التليجرام
                                 </a>
                             </div>
@@ -141,15 +149,15 @@
                 <div class="article-list">
                     <article class="article-preview" data-aos="fade-right">
                         <time datetime="2025-08-10">2025/08/10</time>
-                        <h3><a href="article1.html">التخلف في مجتمعنا: نظرة فلسفية</a></h3>
+                        <h3><a href="article1.html"><i class="fas fa-arrow-left"></i> التخلف في مجتمعنا: نظرة فلسفية</a></h3>
                     </article>
                     <article class="article-preview" data-aos="fade-right" data-aos-delay="100">
                         <time datetime="2025-07-25">2025/07/25</time>
-                        <h3><a href="article2.html">مدخل إلى الفطرة وتحوّلها في عصر الإنترنت</a></h3>
+                        <h3><a href="article2.html"><i class="fas fa-arrow-left"></i> مدخل إلى الفطرة وتحوّلها في عصر الإنترنت</a></h3>
                     </article>
                     <article class="article-preview" data-aos="fade-right" data-aos-delay="200">
                         <time datetime="2025-07-01">2025/07/01</time>
-                        <h3><a href="article3.html">الطبقية وعصيان العدالة: دراسة اجتماعية</a></h3>
+                        <h3><a href="article3.html"><i class="fas fa-arrow-left"></i> الطبقية وعصيان العدالة: دراسة اجتماعية</a></h3>
                     </article>
                 </div>
                 <a href="all-articles.html" class="btn btn-tertiary">قراءة المزيد من المقالات</a>
@@ -198,7 +206,7 @@
             <h4>تابعني عبر:</h4>
             <a href="https://www.facebook.com/share/1FcWBtfDGr/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/Mjwll" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://t.me/iiollr" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
         </div>
         
         <div class="footer-block footer-nav">
@@ -214,6 +222,11 @@
         </p>
     </div>
 </footer>
+
+<div class="sticky-promo" role="alert">
+    <p>💡 كن أول من يقرأ! انضم لقناتنا على تليجرام الآن: <a target="_blank" href="https://t.me/iiollr">انضمام سريع</a></p>
+    <button class="close-promo" aria-label="إغلاق التنبيه">X</button>
+</div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -268,12 +281,28 @@
                         mainNav.querySelector('.nav-list').classList.remove('active');
                         toggleButton.setAttribute('aria-expanded', 'false');
                     }
-       
-                    }
                 });
             });
         }
+        
+        // 4. كود إغلاق الشريط العائم
+        const promo = document.querySelector('.sticky-promo');
+        const closeBtn = document.querySelector('.close-promo');
+
+        if (closeBtn && promo) {
+            closeBtn.addEventListener('click', () => {
+                promo.classList.add('hidden');
+            });
+        }
     });
+    
+    // 🛑 [5] كود شريط التقدم في القراءة 🛑
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
 </script>
 </body>
 </html>
