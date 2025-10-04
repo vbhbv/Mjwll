@@ -182,4 +182,64 @@
             <a href="https://www.facebook.com/share/1Yps43drFk/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://t.me/Mjwll" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/Mjwll" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+        
+        <div class="footer-block footer-nav">
+            <h4>روابط سريعة</h4>
+            <a href="index.html#profile">الرؤية</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <a href="faq.html">الأسئلة الشائعة</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copyright">
+            &copy; 2025 مجول شعلان الحيالي. جميع الحقوق محفوظة. تصميم وإعادة بناء ثقافي.
+        </p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. عداد زوار بسيط و عصري
+        let count = parseInt(localStorage.getItem('visitorCount') || '100', 10);
+        count++;
+        localStorage.setItem('visitorCount', count);
+        
+        const countElement = document.getElementById('visitor-count');
+        if (countElement) { 
+            countElement.innerText = count.toLocaleString('ar-EG'); 
+        }
+        
+        // 2. كود قائمة التنقل (Hamburger Menu)
+        const toggleButton = document.querySelector('.menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        if (toggleButton && mainNav) {
+            toggleButton.addEventListener('click', () => {
+                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
+                toggleButton.setAttribute('aria-expanded', !isExpanded);
+                mainNav.classList.toggle('active');
+            });
+
+            // إغلاق القائمة بعد الضغط على أي رابط (مهم في الجوال)
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        toggleButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+    });
+</script>
+</body>
+</html>
+
             
