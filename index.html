@@ -267,18 +267,16 @@
                         mainNav.classList.remove('active');
                         mainNav.querySelector('.nav-list').classList.remove('active');
                         toggleButton.setAttribute('aria-expanded', 'false');
-          // كود شريط التقدم في القراءة
+                    }
+
+// كود شريط التقدم في القراءة
 window.onscroll = function() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
     document.getElementById("progress-bar").style.width = scrolled + "%";
 };
-                        
-   <div class="sticky-promo" role="alert">
-    <p>💡 كن أول من يقرأ! انضم لقناتنا على تليجرام الآن: <a href="https://t.me/iiollr" target="_blank">انضمام سريع</a></p>
-    <button class="close-promo" aria-label="إغلاق التنبيه">X</button>
-</div>
+
        
                     }
                 });
