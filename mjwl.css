@@ -537,6 +537,43 @@ body.dark-mode .article-preview {
     .nav-list {
         display: flex;
     }
+    /* ==================== الشريط الترحيبي العائم (Sticky Promo) ==================== */
+.sticky-promo {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 0.9em;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.sticky-promo a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.close-promo {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* إخفاء الشريط بعد الضغط على X */
+.sticky-promo.hidden {
+    display: none;
+}
     
     @media (min-width: 992px) {
         .articles-grid {
