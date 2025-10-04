@@ -35,8 +35,9 @@ body {
     background-color: var(--color-background);
     direction: rtl;
     padding-top: 5.5rem;
-    /* 🛠️ تعديل مهم: منع التمرير الأفقي الزائد */
-    overflow-x: hidden; 
+    /* 🛠️ الحل القاطع لعدم التجاوب: فرض عرض شاشة الهاتف */
+    overflow-x: hidden !important; 
+    width: 100vw; /* 💥 هذا يجبر المتصفح على استخدام عرض الـ Viewport */
     scroll-behavior: smooth;
 }
 
@@ -158,7 +159,6 @@ a:hover {
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    /* 🛠️ تعديل مهم: منع ظهور الشريط الأصفر الزائد في الرأس */
     overflow-x: hidden; 
 }
 
@@ -280,7 +280,7 @@ nav a:hover::after {
 .profile-photo {
     width: 250px;
     height: 250px;
-    min-width: 200px;
+    /* 🛠️ تم حذف min-width: 200px; هنا لضمان الانكماش */
     border-radius: 50%;
     overflow: hidden;
     border: 6px solid var(--color-primary);
@@ -509,6 +509,7 @@ nav a:hover::after {
         flex-direction: column;
         text-align: center;
         padding: 2rem 1rem;
+        align-items: center; /* توسيط محتوى البروفايل */
     }
     
     .profile-photo {
@@ -547,9 +548,47 @@ nav a:hover::after {
     }
 }
 
-@media (max-width: 768px) {
-    /* 🛠️ تعديلات مهمة لتصغير العرض على الجوالات الصغيرة */
+@media screen and (max-width: 768px) {
     
+    /* 💥 القاعدة الاختبارية القاطعة: يجب أن يتغير لون الرأس إلى البنفسجي */
+    .site-header {
+        background-color: #5d3fd3 !important; /* لون بنفسجي صريح */
+        padding: 0.5rem 0; 
+        overflow-x: hidden !important;
+    }
+    
+    /* 🛠️ فرض تصغير الحجم والهوامش في قسم الملف الشخصي */
+    .hero-profile {
+        padding: 1.5rem 0.5rem; 
+    }
+
+    .profile-content {
+        gap: 1.5rem; 
+        padding: 0 0.5rem; 
+    }
+
+    /* 🛠️ حل مشكلة الأزرار (ظهورها كعمود بعرض كامل) */
+    .profile-actions {
+        display: flex !important; 
+        flex-direction: column; /* جعلها عمودية لتأخذ مساحة أفقية أكبر */
+        gap: 0.5rem; 
+        margin-top: 1rem;
+        width: 100%; 
+    }
+    
+    .btn {
+        width: 100% !important; 
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    /* 🛠️ تصغير النص التمهيدي */
+    .intro-p {
+        font-size: 0.9rem; 
+        line-height: 1.6;
+    }
+    
+    /* 🛠️ تعديلات مهمة لتصغير العرض على الجوالات الصغيرة */
     h2 {
         font-size: 1.8rem;
     }
