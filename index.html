@@ -2,32 +2,43 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
     <title>مجول شعلان الحيالي | الفكر، الفلسفة، والثقافة المعاصرة</title>
     
     <meta name="description" content="الموقع الرسمي للكاتب مجول شعلان الحيالي. مقالات معمقة في الفلسفة والفكر الثقافي والاجتماعي. رؤى حديثة حول الإنسان والمجتمع والمؤلفات القيمة.">
     <meta name="keywords" content="مجول شعلان الحيالي, كاتب ثقافي, فلسفة, مقالات, المدينة الفاضلة الحديثة, الوردي, مفكر معاصر, تحليلات اجتماعية, الثقافة والفكر">
-     <base href="/Mjwll/"> 
-    <link rel="stylesheet" href="main.css">
+    
+    <base href="/Mjwll/"> 
+    
+    <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     
-    <link rel="icon" type="image/png" href="/images/mjoul-favicon-neww.jpg"> 
-    <link rel="apple-touch-icon" href="/images/mjoul-touch-icon-neww.jpg">
+    <link rel="icon" type="image/png" href="images/mjoul-favicon-neww.jpg"> 
+    <link rel="apple-touch-icon" href="images/mjoul-touch-icon-neww.jpg">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "مجول شعلان الحيالي",
-      "url": "https://[رابط موقعك]",
+      "url": "https://vbhbv.github.io/Mjwll/",
       "sameAs": [
         "https://www.facebook.com/share/1FcWBtfDGr/",
         "https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw",
         "https://t.me/Mjwll"
       ]
     }
+    </script>
+    
+    <script>
+        if (localStorage.getItem('theme') === 'dark-mode') {
+            document.body.classList.add('dark-mode');
+        }
     </script>
 </head> 
 <body>
@@ -39,13 +50,18 @@
             <p class="tagline">كاتب ثقافي وفيلسوف</p>
         </a>
         
-        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="فتح قائمة التنقل">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+        <div class="nav-controls">
+            <button id="theme-toggle" aria-label="تبديل الوضع الليلي">
+                <i class="fas fa-sun"></i> / <i class="fas fa-moon"></i>
+            </button>
+            
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="فتح قائمة التنقل">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
 
         <nav id="main-nav" role="navigation" aria-label="القائمة الرئيسية للموقع">
-            <ul>
-                <li><a href="#profile">الرؤية والسيرة</a></li>
+            <ul class="nav-list"> <li><a href="#profile">الرؤية والسيرة</a></li>
                 <li><a href="#works">المؤلفات القيمة</a></li>
                 <li><a href="#articles">مختارات المقالات</a></li>
                 <li><a href="#contact">تواصل واستفسارات</a></li>
@@ -58,7 +74,7 @@
   
     <section id="profile" class="section hero-profile" aria-labelledby="profile-heading" data-aos="fade-up">
         <div class="profile-content">
-            <img src="author.jpg" alt="صورة مجول شعلان الحيالي" class="profile-photo" loading="lazy">
+            <img src="images/author.jpg" alt="صورة مجول شعلان الحيالي" class="profile-photo" loading="lazy">
             <div class="profile-text">
                 <h2 id="profile-heading">مجول شعلان الحيالي: مفكر يبحث عن المعنى</h2>
                 <p class="intro-p">
@@ -173,73 +189,11 @@
     <div class="container footer-content">
         <div class="footer-block contact-info">
             <h4>تواصل معنا</h4>
-            <p><i class="fa-solid fa-envelope"></i> البريد: info@example.com</p>
-            <p><i class="fa-solid fa-location-dot"></i> الموقع: [المدينة/الدولة]</p>
+            <p><i class="fa-solid fa-envelope"></i> البريد: contact@mjwll.com</p>
+            <p><i class="fa-solid fa-location-dot"></i> الموقع: العراق، نينوى</p>
         </div>
         
         <div class="footer-block social-icons">
             <h4>تابعني عبر:</h4>
-            <a href="https://www.facebook.com/share/1Yps43drFk/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/Mjwll" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                        <a href="https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/Mjwll" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-        </div>
-        
-        <div class="footer-block footer-nav">
-            <h4>روابط سريعة</h4>
-            <a href="index.html#profile">الرؤية</a>
-            <a href="privacy.html">سياسة الخصوصية</a>
-            <a href="faq.html">الأسئلة الشائعة</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p class="footer-copyright">
-            &copy; 2025 مجول شعلان الحيالي. جميع الحقوق محفوظة. تصميم وإعادة بناء ثقافي.
-        </p>
-    </div>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 800, once: true });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        // 1. عداد زوار بسيط و عصري
-        let count = parseInt(localStorage.getItem('visitorCount') || '100', 10);
-        count++;
-        localStorage.setItem('visitorCount', count);
-        
-        const countElement = document.getElementById('visitor-count');
-        if (countElement) { 
-            countElement.innerText = count.toLocaleString('ar-EG'); 
-        }
-        
-        // 2. كود قائمة التنقل (Hamburger Menu)
-        const toggleButton = document.querySelector('.menu-toggle');
-        const mainNav = document.getElementById('main-nav');
-        
-        if (toggleButton && mainNav) {
-            toggleButton.addEventListener('click', () => {
-                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
-                toggleButton.setAttribute('aria-expanded', !isExpanded);
-                mainNav.classList.toggle('active');
-            });
-
-            // إغلاق القائمة بعد الضغط على أي رابط (مهم في الجوال)
-            const navLinks = mainNav.querySelectorAll('a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                        toggleButton.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-        }
-    });
-</script>
-</body>
-</html>
-
-            
+            <a
+                
