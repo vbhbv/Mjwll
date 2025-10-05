@@ -1,5 +1,5 @@
 /* ==================================================================== */
-/* =========== mjwl.css: ملف التنسيقات النهائي (2025) =========== */
+/* =========== mjwl.css: ملف التنسيقات النهائي والمصلح (2025) =========== */
 /* ==================================================================== */
 
 /* ==================== 0. المتغيرات الأساسية (CSS Variables) ==================== */
@@ -12,6 +12,7 @@
     --text-dark: #333333;         /* نص داكن */
     --text-light: #ffffff;        /* نص فاتح */
     --border-color: #e0e0e0;      /* لون الحدود */
+    --line-color: var(--primary-color); /* لون الخط الثقافي الجديد */
 }
 
 /* 🛑 الثيم الإضافي 1: الوضع الليلي (Dark Mode) 🛑 */
@@ -23,6 +24,7 @@ body.dark-mode {
     --text-dark: #f0f0f0;         /* نص فاتح جداً */
     --text-light: #121212;        /* نص داكن (لخلفيات التحديد) */
     --border-color: #333333;      /* حدود رمادية داكنة */
+    --line-color: #93c5fd; /* لون الخط الثقافي في الوضع الليلي */
 }
 
 /* 🛑 الثيم الإضافي 2: الثيم الذهبي 🛑 */
@@ -30,10 +32,11 @@ body.golden-theme {
     --primary-color: #B8860B;     /* لون الذهب الداكن */
     --secondary-color: #DAA520;   /* لون الذهب الفاتح */
     --background-light: #fdfdfd; 
-    --background-secondary: #fffaf0; /* خلفية عاجية خفيفة */
+    --background-secondary: #fffaf0; 
     --text-dark: #4B4B4B;         
     --text-light: #ffffff;        
     --border-color: #e0e0e0;      
+    --line-color: #DAA520; /* لون الخط الثقافي في الثيم الذهبي */
 }
 
 /* ==================== 1. التنسيقات العامة والخطوط ==================== */
@@ -50,7 +53,7 @@ body {
     color: var(--text-dark);
     line-height: 1.7;
     transition: background-color 0.4s, color 0.4s;
-    overflow-x: hidden !important; /* 🛑 لمنع الميلان الأفقي 🛑 */
+    overflow-x: hidden !important; /* لمنع الميلان الأفقي */
 }
 
 h1, h2, h3, h4 {
@@ -89,7 +92,7 @@ a:active, button:active {
     padding: 40px 0;
 }
 
-/* ==================== 2. شريط التقدم في القراءة ==================== */
+/* ==================== 2. شريط التقدم في القراءة (مُصلح) ==================== */
 
 /* 🛑 تعريف حركة التدرج اللوني 🛑 */
 @keyframes color-shift {
@@ -102,15 +105,18 @@ a:active, button:active {
     position: fixed;
     top: 0;
     left: 0;
-    height: 3px;
+    height: 4px; /* زيادة الارتفاع ليكون واضحاً */
     width: 0%;
     z-index: 1000;
     transition: width 0.1s;
     
-    /* 🛑 التدرج اللوني المتحرك 🛑 */
+    /* 🛑 التدرج اللوني المتحرك (مُصلح) 🛑 */
     background: linear-gradient(90deg, #ff00cc, #3333ff, #00ff00, #ff00cc); 
     background-size: 400% 400%; 
-    animation: color-shift 5s ease infinite; 
+    animation: color-shift 5s linear infinite; /* تغيير ease إلى linear لضمان التغيير المستمر */
+    
+    /* لضمان ظهوره فوق الخلفية الداكنة */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
 }
 
 /* ==================== 3. الترويسة وشريط البحث والتنقل ==================== */
@@ -153,6 +159,8 @@ a:active, button:active {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    /* 🛑 إصلاح ظهور الأزرار على الجوال 🛑 */
+    flex-shrink: 0; 
 }
 
 #theme-toggle, #golden-theme-toggle, .menu-toggle {
@@ -206,16 +214,16 @@ body.dark-mode .nav-list li a.active-link {
     color: var(--text-dark) !important; 
 }
 
-/* 🛑 تنسيق شريط البحث 🛑 */
+/* 🛑 تنسيق شريط البحث (مُصلح) 🛑 */
 .search-form {
     grid-area: search;
     display: flex;
-    max-width: 100%;
-    margin: 0;
+    width: 100%; /* ضمان العرض الكامل في الترويسة */
+    max-width: 400px; /* تحديد أقصى عرض على الشاشات الكبيرة */
+    margin: 5px auto 5px 0; /* لضمان عدم الميلان ومحاذاته لليمين */
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 5px;
 }
 .search-form input[type="search"] {
     flex-grow: 1;
@@ -249,7 +257,7 @@ body.dark-mode .nav-list li a.active-link {
     color: var(--text-light);
 }
 .btn-primary:hover {
-    background-color: darken(var(--primary-color), 10%);
+    background-color: #153c25; /* لون أغمق لـ primary-color */
     color: var(--text-light);
 }
 
@@ -323,7 +331,28 @@ body.dark-mode .nav-list li a.active-link {
     grid-template-columns: 3fr 1fr;
     gap: 40px;
     padding-top: 30px;
+    position: relative; /* لجعل الخط الرأسي يعمل داخل حدوده */
 }
+
+/* 🛑 الخط المستقيم الثقافي على اليمين 🛑 */
+.main-layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%; /* تحديد مكان الخط في منتصف المسافة بين العمودين */
+    height: 100%; /* يمتد من أول الصفحة لآخرها */
+    width: 2px;
+    background-color: var(--line-color);
+    opacity: 0.3; /* خفت اللون ليكون لمسة جمالية فقط */
+    z-index: -1;
+}
+/* إزالة الخط على شاشات الجوال لعدم حاجته */
+@media (max-width: 991px) {
+    .main-layout::before {
+        display: none;
+    }
+}
+
 .main-column {
     /* يحتوي على الأعمال والمقالات */
 }
@@ -332,7 +361,7 @@ body.dark-mode .nav-list li a.active-link {
 
 .works-grid {
     display: flex;
-    flex-wrap: wrap; /* للسماح بنزول البطاقات على الجوال */
+    flex-wrap: wrap; 
     gap: 20px;
     margin-top: 20px;
 }
@@ -349,7 +378,7 @@ body.dark-mode .nav-list li a.active-link {
     transition: box-shadow 0.3s, transform 0.3s ease;
 }
 
-/* 🛑 إخفاء الصورة في القائمة الرئيسية (كما طلب المستخدم) 🛑 */
+/* 🛑 إخفاء الصورة في القائمة الرئيسية 🛑 */
 .book-card .book-cover {
     display: none !important;
     width: 0 !important;
@@ -401,7 +430,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     display: flex; 
     align-items: center;
     gap: 10px; 
-    flex-wrap: nowrap; /* لمنع نزول الأيقونة على سطر جديد */
+    flex-wrap: nowrap; 
     color: var(--text-dark);
 }
 .article-preview h3 a:hover {
@@ -436,7 +465,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    /* 🛑 تطبيق الحركة 🛑 */
+    /* تطبيق الحركة */
     animation: fadeInUp 0.5s ease-out forwards;
 }
 
@@ -535,4 +564,162 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     gap: 15px;
     transition: transform 0.3s ease-in-out;
 }
-.sticky
+.sticky-promo.hidden {
+    transform: translateY(100%);
+}
+.sticky-promo p {
+    margin: 0;
+    font-weight: 500;
+}
+.sticky-promo a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+.close-promo {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* ==================== 12. زر العودة للأعلى ==================== */
+
+#scrollToTopBtn {
+    display: none; 
+    position: fixed;
+    bottom: 80px; 
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+body.dark-mode #scrollToTopBtn {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+
+/* ==================== 13. تنسيقات التجاوب (Media Queries) ==================== */
+
+/* شاشات صغيرة (الهواتف) */
+@media (max-width: 768px) {
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* 🛑 إصلاح الترويسة وشريط البحث على الجوال 🛑 */
+    .header-grid {
+        grid-template-areas: 
+            "logo controls"
+            "search search"
+            "nav nav";
+        gap: 8px;
+    }
+    
+    .search-form {
+        max-width: 100%; /* ضمان العرض الكامل */
+        margin: 5px 0; /* إزالة الميلان */
+    }
+
+    /* إخفاء قائمة التنقل الافتراضية */
+    #main-nav {
+        display: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    /* إظهار القائمة عند تفعيلها */
+    #main-nav.active {
+        display: block;
+    }
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+    }
+    .nav-list li a {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+    }
+    .nav-list li:last-child a {
+        border-bottom: none;
+    }
+    
+    /* تخطيط محتوى الصفحة على الجوال */
+    .main-layout {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-photo {
+        margin-bottom: 15px;
+    }
+    .profile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .profile-actions a {
+        margin-inline-end: 0;
+        width: 100%;
+    }
+    
+    .book-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        min-width: 100%;
+    }
+    
+    .sticky-promo {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+    }
+
+    #scrollToTopBtn {
+        bottom: 70px; 
+    }
+}
+
+
+/* الأجهزة اللوحية (عرض أقل من 992px) */
+@media (max-width: 991px) {
+    .main-layout {
+        gap: 30px;
+    }
+    .works-grid {
+        justify-content: center;
+    }
+    
+    .header-grid {
+        grid-template-areas: 
+            "logo controls"
+            "search search"
+            "nav nav";
+    }
+    .nav-list {
+        justify-content: space-around;
+    }
+}
