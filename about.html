@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجول شعلان الحيالي - الفلسفة والنقد الاجتماعي</title>
+    <title>مجول شعلان الحيالي - السيرة الذاتية والفلسفة</title>
     
     <meta name="description" content="مجول شعلان الحيالي: فيلسوف وكاتب عراقي معاصر، يتميز بجرأته في نقد الواقع الاجتماعي وكشف أوهام الفكر الجمعي. استكشف مؤلفاته وإنجازاته الفكرية هنا.">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;700&display=swap">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     
-    <style>
-        .works-list {
-            list-style: none; /* إزالة التنقيط الافتراضي */
-            padding-right: 0; 
-        }
-        .works-list li {
-            padding: 10px 0;
-            margin-bottom: 5px;
-            border-bottom: 1px dashed #eee;
-            font-size: 1.1em;
-        }
-        .works-list li i {
-            margin-left: 10px; /* مسافة بين الأيقونة والنص */
-            font-size: 1.2em;
-            width: 20px; /* لتثبيت عرض الأيقونة */
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="mjwl.css"> <link rel="stylesheet" href="responsive.css">
     
-</head>
-<body>
+    </head>
+
+<body class="about-page">
 
     <header class="site-header" role="banner">
         <div class="container header-content">
@@ -40,54 +22,65 @@
                 <h1 class="logo">مجول شعلان الحيالي</h1>
                 <p class="subtitle">كاتب وفيلسوف معاصر</p>
             </a>
+            
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="فتح قائمة التنقل">
+                <span class="hamburger-icon"></span>
+            </button>
+            
+            <nav id="main-nav" role="navigation" aria-label="القائمة الرئيسية للموقع">
+                <ul>
+                    <li><a href="index.html#profile" class="active-link">السيرة</a></li>
+                    <li><a href="index.html#works">المؤلفات</a></li>
+                    <li><a href="index.html#articles">المقالات</a></li>
+                    <li><a href="index.html#contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            
         </div>
     </header>
 
-    <main class="container main-content">
+    <main class="section">
+        <div class="container">
         
-        <section id="full-bio" class="bio-section">
-            <h2 class="section-heading">نبذة عن مجول شعلان الحيالي</h2>
-            
-            <article class="bio-details">
-                <div class="bio-text">
+            <section id="full-bio" class="bio-card">
+                
+                <div class="bio-header">
+                    <img src="assets/profile-photo.jpg" alt="صورة مجول شعلان الحيالي" class="profile-photo">
+                    <h1>مجول شعلان الحيالي</h1>
+                    <p class="subtitle">فيلسوف وكاتب معاصر</p>
+                </div>
+                
+                <article class="bio-content">
                     
+                    <h2>نبذة تعريفية</h2>
                     <p>
                         مجول شعلان الحيالي واحد من أبرز الأصوات الفلسفية المعاصرة في العراق، كاتب وفيلسوف تميّز في نقد الواقع الاجتماعي وكشف أوهام الفكر الجمعي، وبقدرته على إعادة صياغة القضايا القديمة بلغة جديدة تمسّ القارئ مباشرة. لا يكتفي الحيالي بالكتابة كترف ثقافي، بل يتخذ من الفلسفة سلاحًا لتحرير العقل من قيوده، ومن التحليل الاجتماعي طريقًا لفضح التناقضات التي يعيشها الإنسان المعاصر.
                     </p>
                     
-                    <h3>أبرز مؤلفاته:</h3>
+                    <h2>أبرز مؤلفاته</h2>
                     <ul class="works-list">
-                        <li style="color: #007bff;"><i class="fas fa-book-open"></i> 
-                            **وهم المجتمع الفاضل:** كتاب يهدم أسطورة الكمال الاجتماعي ويكشف عن هشاشة المثاليات.
-                        </li>
-                        <li style="color: #28a745;"><i class="fas fa-lightbulb"></i> 
-                            **بعثرات فلسفية:** تأملات عميقة تكشف عن فوضى الإنسان في مواجهة ذاته والعالم.
-                        </li>
-                        <li style="color: #ffc107;"><i class="fas fa-city"></i> 
-                            **المدينة الفاضلة الحديثة:** مشروع فكري  لإعادة بناء الحلم الفارابي على أسس واقعية معاصرة.
-                        </li>
-                        <li style="color: #dc3545;"><i class="fas fa-pen-nib"></i> 
-                            **الدليل في ظل التضليل:** نقد لزيف المعارف في زمن التضليل الإعلامي والمعلوماتي.
-                        </li>
-                        <li style="color: #6f42c1;"><i class="fas fa-globe-europe"></i> 
-                            **الفلسفة الأوروبية:** قراءة تحليلية لمسار الفكر الغربي، بعمق يربط بين الماضي والحاضر.
-                        </li>
-                        <li style="color: #17a2b8;"><i class="fas fa-atom"></i> 
-                            **فلسفة الوجود المطلق:** محاولة لفهم جوهر الإنسان .
-                        </li>
+                        <li><i class="fas fa-book-open"></i> وهم المجتمع الفاضل: كتاب يهدم أسطورة الكمال الاجتماعي ويكشف عن هشاشة المثاليات.</li>
+                        <li><i class="fas fa-lightbulb"></i> بعثرات فلسفية: تأملات عميقة تكشف عن فوضى الإنسان في مواجهة ذاته والعالم.</li>
+                        <li><i class="fas fa-city"></i> المدينة الفاضلة الحديثة: مشروع فكري لإعادة بناء الحلم الفارابي على أسس واقعية معاصرة.</li>
+                        <li><i class="fas fa-pen-nib"></i> الدليل في ظل التضليل: نقد لزيف المعارف في زمن التضليل الإعلامي والمعلوماتي.</li>
+                        <li><i class="fas fa-globe-europe"></i> الفلسفة الأوروبية: قراءة تحليلية لمسار الفكر الغربي، بعمق يربط بين الماضي والحاضر.</li>
+                        <li><i class="fas fa-atom"></i> فلسفة الوجود المطلق: محاولة لفهم جوهر الإنسان.</li>
                     </ul>
                     
-                    <h3>بصمته الفكرية</h3>
+                    <h2>بصمته الفكرية</h2>
                     <p>
                         الحيالي يُنظر إليه كجسر يربط بين الفلسفة الأكاديمية والواقع الشعبي، إذ يجعل القضايا المعقدة في متناول الجميع دون أن يفقدها عمقها. كتاباته ليست مجرد نصوص، بل محاولات دؤوبة لإيقاظ الوعي وكسر القيود.
                     </p>
+                </article>
+                
+                <div class="bio-social-links">
+                    <a href="https://www.instagram.com/mjoul_?igsh=ajl0OWxhaGtzdHgw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/iiollr" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="index.html#contact" class="btn btn-secondary contact-bio-btn">تواصل معنا</a>
                 </div>
-            </article>
 
-            <a href="index.html#contact" class="btn btn-secondary contact-bio-btn">تواصل مع الكاتب مباشرة</a>
-            
-        </section>
-
+            </section>
+            </div>
     </main>
 
     <footer class="site-footer">
