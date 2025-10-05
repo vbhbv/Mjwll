@@ -1,0 +1,37 @@
+#
+# إرشادات لجميع روبوتات محركات البحث (مثل Google, Bing, DuckDuckGo)
+#
+User-agent: *
+# السماح بالزحف لكل الصفحات بشكل افتراضي
+Allow: /
+# استثناء بعض المجلدات الشائعة التي لا تحتاج إلى فهرستها
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.yaml$
+Disallow: /assets/ # قد تحتاج إلى إزالة هذا السطر إذا كنت تضع ملفات CSS/JS مهمة هنا
+
+#
+# إرشادات خاصة لروبوت جوجل للصور
+#
+User-agent: Googlebot-Image
+Allow: /
+
+#
+# إرشادات خاصة لروبوت جوجل للفيديوهات (إذا كان لديك فيديوهات)
+#
+User-agent: Googlebot-Video
+Allow: /
+
+#
+# إرشادات خاصة لروبوت Bing (Microsoft)
+#
+User-agent: Bingbot
+Allow: /
+
+#
+# تحديد مسار خريطة الموقع (الأمر الأهم لموقعك)
+# (تأكد من استبدال المسار بالرابط الكامل والصحيح لخريطة موقعك على الإنترنت)
+#
+Sitemap: https://vbhbv.github.io/Mjwll/sitemap.xml
