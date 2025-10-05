@@ -42,8 +42,9 @@
     </script>
     
     <script>
-        if (localStorage.getItem('theme') === 'dark-mode') {
-            document.body.classList.add('dark-mode');
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+            document.body.classList.add(storedTheme);
         }
     </script>
 </head> 
@@ -59,6 +60,10 @@
         </a>
         
         <div class="nav-controls">
+            <button id="golden-theme-toggle" aria-label="تبديل إلى الثيم الذهبي">
+                <i class="fa-solid fa-gem"></i>
+            </button>
+            
             <button id="theme-toggle" aria-label="تبديل الوضع الليلي">
                 <i class="fas fa-sun"></i> / <i class="fas fa-moon"></i>
             </button>
@@ -76,6 +81,15 @@
                 <li><a href="#contact">تواصل واستفسارات</a></li>
             </ul>
         </nav>
+        
+        <form class="search-form" action="https://www.google.com/search" method="get" role="search">
+            <input type="hidden" name="sitesearch" value="vbhbv.github.io/Mjwll">
+            <input type="search" name="q" placeholder="ابحث في المقالات والمؤلفات..." aria-label="حقل البحث في الموقع">
+            <button type="submit" class="search-button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        
     </div>
 </header>
 
@@ -110,7 +124,7 @@
                         <img src="images/book1.jpg" alt="غلاف كتاب المدينة الفاضلة الحديثة" class="book-cover">
                         <div class="book-detail">
                             <h3>المدينة الفاضلة الحديثة</h3>
-                            <p>دراسة معمقة في الفلسفة السياسية والاجتماعية لإعادة تصور المجتمع المثالي في العصر الرقمي.</p>
+                            <p id="book1-quote">دراسة معمقة في الفلسفة السياسية والاجتماعية لإعادة تصور المجتمع المثالي في العصر الرقمي.</p>
                             <div class="book-links">
                                 <a href="https://t.me/iiollr" target="_blank" class="action-link link-download">
                                     <i class="fa-solid fa-download"></i> تحميل (PDF)
@@ -118,6 +132,9 @@
                                 <a href="https://t.me/iiollr" target="_blank" class="action-link link-telegram">
                                     <i class="fab fa-telegram-plane"></i> قناة التليجرام
                                 </a>
+                                <button onclick="copyText('book1-quote')" class="btn btn-tertiary copy-btn">
+                                    <i class="fa-solid fa-copy"></i> انسخ الوصف
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -126,7 +143,7 @@
                         <img src="images/book2.jpg" alt="غلاف كتاب بعثرات فلسفية" class="book-cover">
                         <div class="book-detail">
                             <h3>بعثرات فلسفية</h3>
-                            <p>مجموعة من المقالات والأفكار المبعثرة التي تعكس رؤية معاصرة ومختلفة في القضايا الفلسفية والوجودية.</p>
+                            <p id="book2-quote">مجموعة من المقالات والأفكار المبعثرة التي تعكس رؤية معاصرة ومختلفة في القضايا الفلسفية والوجودية.</p>
                             <div class="book-links">
                                 <a href="https://t.me/iiollr" target="_blank" class="action-link link-download">
                                     <i class="fa-solid fa-download"></i> تحميل (PDF)
@@ -134,6 +151,9 @@
                                 <a href="https://t.me/iiollr" target="_blank" class="action-link link-telegram">
                                     <i class="fab fa-telegram-plane"></i> قناة التليجرام
                                 </a>
+                                <button onclick="copyText('book2-quote')" class="btn btn-tertiary copy-btn">
+                                    <i class="fa-solid fa-copy"></i> انسخ الوصف
+                                </button>
                             </div>
                         </div>
                     </article>
@@ -228,39 +248,67 @@
     <button class="close-promo" aria-label="إغلاق التنبيه">X</button>
 </div>
 
+<button id="scrollToTopBtn" aria-label="العودة إلى أعلى الصفحة">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 800, once: true });
 
+    // ==================== وظيفة النسخ التلقائي (Copy to Clipboard) ====================
+    function copyText(elementId) {
+        const element = document.getElementById(elementId);
+        let textToCopy = element.innerText;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // تغيير نص الزر بشكل مؤقت لتأكيد النسخ
+            const copyButton = element.parentNode.querySelector('.copy-btn');
+            const originalHtml = copyButton.innerHTML;
+            copyButton.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
+            setTimeout(() => {
+                copyButton.innerHTML = originalHtml;
+            }, 1500);
+        }).catch(err => {
+            console.error('فشل في نسخ النص: ', err);
+            alert('فشل النسخ، يرجى المحاولة يدوياً.');
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        // 1. كود تبديل الوضع الليلي (Dark Mode)
+        // 1. كود تبديل الوضع الليلي (Dark Mode) و الثيم الذهبي
         const themeToggle = document.getElementById('theme-toggle');
+        const goldenToggle = document.getElementById('golden-theme-toggle');
+        
+        function handleThemeToggle(themeClass) {
+            const isDark = themeClass === 'dark-mode';
+            const isGolden = themeClass === 'golden-theme';
+
+            document.body.classList.toggle(themeClass);
+            
+            if (document.body.classList.contains(themeClass)) {
+                localStorage.setItem('theme', themeClass);
+                // إزالة الثيم الآخر لضمان عدم التعارض
+                if (isDark) document.body.classList.remove('golden-theme');
+                if (isGolden) document.body.classList.remove('dark-mode');
+            } else {
+                localStorage.removeItem('theme');
+            }
+        }
+
         if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                if (document.body.classList.contains('dark-mode')) {
-                    localStorage.setItem('theme', 'dark-mode');
-                } else {
-                    localStorage.removeItem('theme');
-                }
-            });
+            themeToggle.addEventListener('click', () => handleThemeToggle('dark-mode'));
+        }
+        if (goldenToggle) {
+            goldenToggle.addEventListener('click', () => handleThemeToggle('golden-theme'));
         }
         
-        // 2. عداد زوار بسيط و عصري
-        let count = parseInt(localStorage.getItem('visitorCount') || '100', 10);
-        count++;
-        localStorage.setItem('visitorCount', count);
-        
-        const countElement = document.getElementById('visitor-count');
-        if (countElement) { 
-            countElement.innerText = count.toLocaleString('ar-EG'); 
-        }
-        
-        // 3. كود قائمة التنقل (Hamburger Menu)
+        // 2. كود قائمة التنقل (Hamburger Menu) و إغلاق القائمة
         const toggleButton = document.querySelector('.menu-toggle');
         const mainNav = document.getElementById('main-nav');
         
         if (toggleButton && mainNav) {
+            // ... (باقي كود Hamburger Menu كما هو) ...
             toggleButton.addEventListener('click', () => {
                 const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true' || false;
                 toggleButton.setAttribute('aria-expanded', !isExpanded);
@@ -272,7 +320,6 @@
                 }
             });
 
-            // إغلاق القائمة بعد الضغط على أي رابط (مهم في الجوال)
             const navLinks = mainNav.querySelectorAll('a');
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -285,7 +332,7 @@
             });
         }
         
-        // 4. كود إغلاق الشريط العائم
+        // 3. كود الشريط العائم
         const promo = document.querySelector('.sticky-promo');
         const closeBtn = document.querySelector('.close-promo');
 
@@ -294,15 +341,88 @@
                 promo.classList.add('hidden');
             });
         }
+        
+        // 4. رسالة ترحيبية مشروطة
+        (function() {
+            const isReturningUser = localStorage.getItem('visited');
+            if (!isReturningUser) {
+                setTimeout(() => {
+                    alert("أهلاً بك أيها المفكر! يسعدني وجودك في عالم الأفكار، لا تنسى زيارة قسم المقالات.");
+                    localStorage.setItem('visited', 'true');
+                }, 3000); 
+            }
+        })();
+        
+        // 5. عداد زوار بسيط و عصري
+        let count = parseInt(localStorage.getItem('visitorCount') || '100', 10);
+        count++;
+        localStorage.setItem('visitorCount', count);
+        
+        const countElement = document.getElementById('visitor-count');
+        if (countElement) { 
+            countElement.innerText = count.toLocaleString('ar-EG'); 
+        }
+        
+        // 6. كود تحديد الروابط النشطة عند التمرير
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('.nav-list a');
+
+        function setActiveLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                // - 100 لضبط مكان التحديد
+                const sectionTop = section.offsetTop - 100; 
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                // نستخدم link.hash (مثل #profile) للمقارنة
+                if (link.hash === `#${current}`) { 
+                    link.classList.add('active-link');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink(); 
+        
     });
     
-    // 🛑 [5] كود شريط التقدم في القراءة 🛑
+    // ==================== أكواد مرتبطة بالتمرير (خارج DOMContentLoaded) ====================
+    
+    // 🛑 كود شريط التقدم في القراءة 🛑
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progress-bar").style.width = scrolled + "%";
+        
+        // إظهار/إخفاء زر العودة للأعلى
+        const scrollBtn = document.getElementById("scrollToTopBtn");
+        if (scrollBtn) {
+            if (winScroll > 500) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        }
     };
+    
+    // كود زر العودة للأعلى (وظيفة الضغط)
+    const scrollBtn = document.getElementById("scrollToTopBtn");
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
 </script>
 </body>
 </html>
