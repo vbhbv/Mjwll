@@ -1,5 +1,5 @@
 /* ==================================================================== */
-/* =========== mjwl.css: ملف التنسيقات النهائي والمدمج (مُحدَّث 2025) =========== */
+/* =========== mjwl.css: الكود النهائي المحسن لملف التنسيقات (2025) =========== */
 /* ==================================================================== */
 
 /* ==================== 0. المتغيرات الأساسية (CSS Variables) ==================== */
@@ -7,36 +7,40 @@
     /* الثيم الأساسي (النهاري - الأخضر/البرتقالي) */
     --primary-color: #1a4d2e;     /* أخضر غامق (للزراير والروابط) */
     --secondary-color: #ff9f1c;   /* برتقالي/ذهبي (للتحديد والإبراز) */
-    --background-light: #ffffff;  /* خلفية بيضاء */
-    --background-secondary: #f4f4f4; /* خلفية فاتحة ثانوية */
-    --text-dark: #333333;         /* نص داكن */
+    --background-light: #f7f7f7;  /* خلفية فاتحة جداً مريحة للعين */
+    --background-secondary: #ffffff; /* خلفية بيضاء للبطاقات لزيادة التباين */
+    --text-dark: #2c2c2c;         /* نص شبه أسود لتباين مريح */
     --text-light: #ffffff;        /* نص فاتح */
     --border-color: #e0e0e0;      /* لون الحدود */
-    --line-color: var(--primary-color); /* لون الخط الثقافي الجديد */
+    --line-color: var(--primary-color); 
+    
+    /* متغيرات الخطوط */
+    --font-heading: 'Changa', sans-serif;
+    --font-body: 'Tajawal', sans-serif; /* الخط الجديد المريح للقراءة */
 }
 
 /* 🛑 الثيم الإضافي 1: الوضع الليلي (Dark Mode) 🛑 */
 body.dark-mode {
-    --primary-color: #93c5fd;     /* أزرق فاتح للروابط */
+    --primary-color: #8c9eff;     /* أزرق بنفسجي مريح للروابط */
     --secondary-color: #ffcc00;   /* أصفر لامع للتحديد */
-    --background-light: #121212;  /* خلفية سوداء داكنة */
-    --background-secondary: #1f1f1f; /* خلفية رمادية داكنة ثانوية */
-    --text-dark: #f0f0f0;         /* نص فاتح جداً */
-    --text-light: #121212;        /* نص داكن (لخلفيات التحديد) */
-    --border-color: #333333;      /* حدود رمادية داكنة */
-    --line-color: #93c5fd; /* لون الخط الثقافي في الوضع الليلي */
+    --background-light: #181818;  /* خلفية رمادية داكنة جداً */
+    --background-secondary: #242424; /* خلفية أغمق قليلاً للبطاقات */
+    --text-dark: #e0e0e0;         /* نص رمادي فاتح لتقليل السطوع */
+    --text-light: #121212;        
+    --border-color: #383838;      /* حدود رمادية داكنة */
+    --line-color: #8c9eff; 
 }
 
 /* 🛑 الثيم الإضافي 2: الثيم الذهبي 🛑 */
 body.golden-theme {
-    --primary-color: #B8860B;     /* لون الذهب الداكن */
-    --secondary-color: #DAA520;   /* لون الذهب الفاتح */
+    --primary-color: #B8860B;     
+    --secondary-color: #DAA520;   
     --background-light: #fdfdfd; 
     --background-secondary: #fffaf0; 
     --text-dark: #4B4B4B;         
     --text-light: #ffffff;        
     --border-color: #e0e0e0;      
-    --line-color: #DAA520; /* لون الخط الثقافي في الثيم الذهبي */
+    --line-color: #DAA520; 
 }
 
 /* ==================== 1. التنسيقات العامة والخطوط ==================== */
@@ -48,7 +52,7 @@ body.golden-theme {
 }
 
 body {
-    font-family: 'Amiri', serif;
+    font-family: var(--font-body); /* تطبيق الخط الجديد المريح */
     background-color: var(--background-light);
     color: var(--text-dark);
     line-height: 1.7;
@@ -57,7 +61,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Changa', sans-serif;
+    font-family: var(--font-heading);
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.5em;
@@ -109,8 +113,6 @@ a:active, button:active {
     width: 0%;
     z-index: 1000;
     transition: width 0.1s;
-    
-    /* العودة للون ثابت وأنيق لشريط التقدم */
     background-color: var(--secondary-color); 
     box-shadow: 0 0 5px var(--secondary-color); 
 }
@@ -159,7 +161,6 @@ a:active, button:active {
 }
 
 #theme-toggle, #golden-theme-toggle {
-    /* التنسيق الأساسي للعناصر الدائرية */
     position: relative;
     background: var(--background-secondary);
     color: var(--primary-color);
@@ -189,8 +190,8 @@ a:active, button:active {
 
 #theme-toggle i {
     z-index: 2;
-    background-color: var(--background-light); /* تغيير الخلفية لتكون اللون الأساسي الفاتح */
-    color: var(--primary-color); /* لون الأيقونة */
+    background-color: var(--background-light); 
+    color: var(--primary-color); 
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -199,7 +200,7 @@ a:active, button:active {
     align-items: center;
 }
 body.dark-mode #theme-toggle i {
-    background-color: var(--background-secondary); /* في الوضع الليلي تكون خلفيتها أغمق قليلاً */
+    background-color: var(--background-secondary); 
     color: var(--primary-color); 
 }
 
@@ -292,7 +293,7 @@ body.dark-mode .nav-list li a.active-link {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 6px;
-    font-family: 'Changa', sans-serif;
+    font-family: var(--font-heading);
     font-weight: 500;
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
@@ -661,10 +662,11 @@ body.dark-mode #scrollToTopBtn {
     color: var(--text-dark);
 }
 
-/* ==================== 13. تنسيقات صفحة المقال (Article Page) ==================== */
+/* ==================== 13. تنسيقات صفحة المقال (Article Page) (عالمي ومريح) ==================== */
 
 .article-page .container {
-    max-width: 900px; /* تحديد عرض المحتوى لراحة القراءة */
+    max-width: 900px; 
+    padding-top: 20px; 
 }
 
 .article-header {
@@ -674,18 +676,20 @@ body.dark-mode #scrollToTopBtn {
 }
 
 .article-header h1 {
-    font-size: 2.5em;
+    font-size: 2.8em; 
     color: var(--primary-color);
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 10px;
+    font-family: var(--font-heading);
 }
 
 .article-metadata {
     font-size: 0.95em;
-    color: #6a6a6a;
+    color: var(--text-dark); 
+    opacity: 0.7; 
 }
 .article-metadata span {
-    margin-inline-end: 15px;
+    margin-inline-end: 25px; 
 }
 .article-metadata i {
     color: var(--secondary-color);
@@ -694,48 +698,61 @@ body.dark-mode #scrollToTopBtn {
 
 /* تنسيقات محتوى المقال */
 .article-content {
-    font-size: 1.15em;
-    line-height: 2; /* زيادة سطر التباعد لراحة العين */
-    text-align: justify; /* ضبط النص ليكون متساوياً من اليمين واليسار */
+    font-size: 1.2em; 
+    line-height: 2.1; /* تباعد عالمي مريح للقراءة */
+    text-align: justify; 
+    padding-top: 15px;
 }
 
 .article-content p {
-    margin-bottom: 1.5em;
+    margin-bottom: 2em; /* هامش أكبر بين الفقرات */
 }
 
 .article-content h2 {
-    font-size: 1.8em;
-    color: var(--text-dark); /* جعل العناوين الفرعية بلون النص العادي */
-    border-right: 4px solid var(--secondary-color);
-    padding-right: 10px;
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    font-family: 'Changa', sans-serif;
+    font-size: 2em; 
+    color: var(--primary-color); 
+    border-right: 5px solid var(--secondary-color); 
+    padding-right: 15px;
+    margin-top: 2.5em; 
+    margin-bottom: 1em;
+    font-family: var(--font-heading);
     font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05); 
 }
 
 .article-content h3 {
-    font-size: 1.4em;
-    color: var(--primary-color);
-    margin-top: 1.2em;
-    margin-bottom: 0.6em;
+    font-size: 1.6em;
+    color: var(--text-dark); 
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px dashed var(--border-color); 
+    padding-bottom: 5px;
 }
 
 /* تنسيق الاقتباسات */
 .article-content blockquote {
-    border-right: 5px solid var(--primary-color);
+    border-right: 5px solid var(--secondary-color); 
     padding-right: 20px;
-    margin: 2em 0;
+    margin: 2.5em 0; 
     font-style: italic;
-    background-color: var(--background-secondary);
-    padding: 15px;
-    border-radius: 4px;
+    background-color: var(--background-secondary); 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    line-height: 1.8; 
+    color: var(--text-dark);
+    font-family: var(--font-heading); 
+    font-weight: 500;
 }
 
+/* تنسيق القوائم */
 .article-content ul, .article-content ol {
-    margin: 1em 0;
-    padding-right: 25px;
-    line-height: 1.8;
+    margin: 1.5em 0;
+    padding-right: 35px;
+    line-height: 2; 
+}
+.article-content ul li::marker {
+    color: var(--secondary-color); 
 }
 
 /* ==================== 14. تنسيقات التجاوب (Media Queries) ==================== */
