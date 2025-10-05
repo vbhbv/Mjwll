@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap/0.9/sitemap-image.xsd">
 
     <url>
         <loc>https://vbhbv.github.io/Mjwll/index.html</loc>
@@ -10,15 +10,15 @@
         
         <image:image>
             <image:loc>https://vbhbv.github.io/Mjwll/images/author.jpg</image:loc>
-            <image:caption>صورة الكاتب مجول شعلان الحيالي</image:caption>
+            <image:title>صورة الكاتب مجول شعلان الحيالي</image:title> 
         </image:image>
         <image:image>
             <image:loc>https://vbhbv.github.io/Mjwll/images/book1.jpg</image:loc>
-            <image:caption>غلاف كتاب المدينة الفاضلة الحديثة</image:caption>
+            <image:title>غلاف كتاب المدينة الفاضلة الحديثة</image:title>
         </image:image>
         <image:image>
             <image:loc>https://vbhbv.github.io/Mjwll/images/book2.jpg</image:loc>
-            <image:caption>غلاف كتاب بعثرات فلسفية</image:caption>
+            <image:title>غلاف كتاب بعثرات فلسفية</image:title>
         </image:image>
     </url>
 
@@ -54,6 +54,12 @@
     </url>
 
     <url>
+        <loc>https://vbhbv.github.io/Mjwll/about.html</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://vbhbv.github.io/Mjwll/news1.html</loc>
         <lastmod>2025-09-01</lastmod>
         <changefreq>monthly</changefreq>
@@ -65,24 +71,5 @@
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-
-    <url>
-        <loc>https://vbhbv.github.io/Mjwll/about.html</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://vbhbv.github.io/Mjwll/all-articles.html</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://vbhbv.github.io/Mjwll/all-books.html</loc>
-        <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
     
-</urlset>
+    </urlset>
