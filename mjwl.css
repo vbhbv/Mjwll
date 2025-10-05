@@ -1,5 +1,5 @@
 /* ==================================================================== */
-/* =========== mjwl.css: الكود النهائي المحسن لملف التنسيقات (2025) =========== */
+/* =========== mjwl.css: الكود النهائي الشامل والمدمج (2025) =========== */
 /* ==================================================================== */
 
 /* ==================== 0. المتغيرات الأساسية (CSS Variables) ==================== */
@@ -31,7 +31,7 @@ body.dark-mode {
     --line-color: #8c9eff; 
 }
 
-/* 🛑 الثيم الإضافي 2: الثيم الذهبي 🛑 */
+/* 🛑 الثيم الإضافي 2: الثيم الذهبي (Golden Theme) 🛑 */
 body.golden-theme {
     --primary-color: #B8860B;     
     --secondary-color: #DAA520;   
@@ -43,20 +43,28 @@ body.golden-theme {
     --line-color: #DAA520; 
 }
 
-/* ==================== 1. التنسيقات العامة والخطوط ==================== */
+/* ==================== 1. التنسيقات العامة والخطوط + حل مشكلة الميلان ==================== */
 
 * {
-    box-sizing: border-box;
+    /* تأكيد أن الهوامش والظلال تُحسب داخل عرض العنصر لتجنب التجاوز */
+    box-sizing: border-box !important; 
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: var(--font-body); /* تطبيق الخط الجديد المريح */
+    font-family: var(--font-body); 
     background-color: var(--background-light);
     color: var(--text-dark);
     line-height: 1.7;
     transition: background-color 0.4s, color 0.4s;
+    /* 🛑 الحل الحاسم لمنع التمرير الأفقي في كل مكان 🛑 */
+    overflow-x: hidden !important; 
+    width: 100%; /* ضمان أن عرض الصفحة يملأ الشاشة تماماً */
+}
+
+/* حل جذري على وسم html أيضاً */
+html {
     overflow-x: hidden !important; 
 }
 
@@ -78,7 +86,7 @@ a:hover {
     color: var(--secondary-color);
 }
 
-/* 🛑 تأثير الضغط على الروابط والأزرار 🛑 */
+/* تأثير الضغط على الروابط والأزرار */
 a:active, button:active {
     background-color: var(--primary-color) !important;
     color: white !important;
@@ -90,15 +98,24 @@ a:active, button:active {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    overflow-x: hidden; /* يضمن أن المحتوى داخل الحاوية لا يتجاوزها */
 }
 
 .section {
     padding: 40px 0;
+    overflow-x: hidden; /* يمنع التجاوز في الأقسام الرئيسية */
+}
+
+/* يضمن أن الصور والفيديوهات لا تتجاوز حدود الحاوية أبداً */
+img, video, iframe, embed, object {
+    max-width: 100% !important;
+    height: auto;
+    display: block;
 }
 
 /* ==================== 2. شريط التقدم في القراءة ==================== */
 
-/* 🛑 تعريف حركة التدرج اللوني (للاستخدام على الزر فقط) 🛑 */
+/* تعريف حركة التدرج اللوني (للاستخدام على الزر فقط) */
 @keyframes color-shift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -126,6 +143,7 @@ a:active, button:active {
     top: 0;
     z-index: 50;
     padding: 10px 0;
+    overflow-x: hidden; /* منع التجاوز هنا أيضاً */
 }
 
 .header-grid {
@@ -182,7 +200,7 @@ a:active, button:active {
     transform: scale(1.05);
 }
 
-/* 🛑 تطبيق التدرج اللوني المتحرك على زر تبديل الوضع 🛑 */
+/* تطبيق التدرج اللوني المتحرك على زر تبديل الوضع */
 #theme-toggle {
     padding: 2px; 
     background: none; 
@@ -214,7 +232,7 @@ body.dark-mode #theme-toggle i {
     z-index: 1;
     border-radius: 50%;
     
-    /* 🛑 تطبيق التدرج اللوني هنا (الإطار) 🛑 */
+    /* تطبيق التدرج اللوني هنا (الإطار) */
     background: linear-gradient(90deg, #ff00cc, #3333ff, #00ff00, #ff00cc);
     background-size: 400% 400%;
     animation: color-shift 4s linear infinite; 
@@ -249,7 +267,7 @@ body.golden-theme #theme-toggle::before {
     font-size: 1.1em;
     font-weight: 500;
 }
-/* 🛑 تنسيق الروابط النشطة 🛑 */
+/* تنسيق الروابط النشطة */
 .nav-list li a.active-link {
     background-color: var(--secondary-color);
     color: var(--text-light) !important;
@@ -261,7 +279,7 @@ body.dark-mode .nav-list li a.active-link {
     color: var(--text-dark) !important; 
 }
 
-/* 🛑 تنسيق شريط البحث (مُصلح) 🛑 */
+/* تنسيق شريط البحث (مُصلح) */
 .search-form {
     grid-area: search;
     display: flex;
@@ -325,7 +343,7 @@ body.dark-mode .nav-list li a.active-link {
     border: 1px solid var(--border-color);
 }
 
-/* 🛑 تأثير الوميض (Shine Effect) على الأزرار 🛑 */
+/* تأثير الوميض (Shine Effect) على الأزرار */
 .btn-primary, .btn-secondary {
     position: relative;
     overflow: hidden; 
@@ -352,6 +370,7 @@ body.dark-mode .nav-list li a.active-link {
     background-color: var(--background-secondary);
     border-radius: 8px;
     padding: 30px;
+    overflow-x: hidden; /* منع التجاوز */
 }
 .profile-content {
     display: flex;
@@ -379,9 +398,10 @@ body.dark-mode .nav-list li a.active-link {
     gap: 40px;
     padding-top: 30px;
     position: relative; 
+    overflow-x: hidden; /* منع التجاوز */
 }
 
-/* 🛑 الخط المستقيم الثقافي على اليمين 🛑 */
+/* الخط المستقيم الثقافي على اليمين */
 .main-layout::before {
     content: "";
     position: absolute;
@@ -402,6 +422,7 @@ body.dark-mode .nav-list li a.active-link {
 
 .main-column {
     /* يحتوي على الأعمال والمقالات */
+    overflow-x: hidden; /* منع التجاوز */
 }
 
 /* ==================== 7. قسم الأعمال والمؤلفات ==================== */
@@ -423,16 +444,17 @@ body.dark-mode .nav-list li a.active-link {
     padding: 15px;
     gap: 15px;
     transition: box-shadow 0.3s, transform 0.3s ease;
+    overflow-x: hidden; /* منع التجاوز */
 }
 
-/* 🛑 إخفاء الصورة في القائمة الرئيسية 🛑 */
+/* إخفاء الصورة في القائمة الرئيسية */
 .book-card .book-cover {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
 }
 
-/* 🛑 تأثير التوهج على البطاقات (Hover Glow) 🛑 */
+/* تأثير التوهج على البطاقات (Hover Glow) */
 .book-card:hover, .article-preview:hover {
     transform: translateY(-5px); 
     box-shadow: 0 10px 30px rgba(255, 159, 28, 0.4), 
@@ -466,6 +488,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     border-radius: 6px;
     margin-bottom: 10px;
     border-right: 5px solid var(--secondary-color);
+    overflow-x: hidden; /* منع التجاوز */
 }
 .article-preview time {
     display: block;
@@ -495,7 +518,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
 
 /* ==================== 9. الشريط الجانبي (Sidebar) ==================== */
 
-/* 🛑 حركة الإظهار التلقائي (القفز الخفيف) 🛑 */
+/* حركة الإظهار التلقائي (القفز الخفيف) */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -514,6 +537,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     /* تطبيق الحركة */
     animation: fadeInUp 0.5s ease-out forwards;
+    overflow-x: hidden; /* منع التجاوز */
 }
 
 .sidebar .card:nth-child(2) { animation-delay: 0.1s; }
@@ -553,6 +577,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     color: var(--text-light);
     padding-top: 30px;
     margin-top: 40px;
+    overflow-x: hidden; /* منع التجاوز */
 }
 .footer-content {
     display: grid;
@@ -610,6 +635,7 @@ body.dark-mode .book-card:hover, body.dark-mode .article-preview:hover {
     align-items: center;
     gap: 15px;
     transition: transform 0.3s ease-in-out;
+    overflow-x: hidden; /* منع التجاوز */
 }
 .sticky-promo.hidden {
     transform: translateY(100%);
@@ -702,6 +728,7 @@ body.dark-mode #scrollToTopBtn {
     line-height: 2.1; /* تباعد عالمي مريح للقراءة */
     text-align: justify; 
     padding-top: 15px;
+    overflow-x: hidden; /* منع التجاوز */
 }
 
 .article-content p {
@@ -764,7 +791,7 @@ body.dark-mode #scrollToTopBtn {
         padding: 0 15px;
     }
     
-    /* 🛑 إصلاح الترويسة وشريط البحث على الجوال 🛑 */
+    /* إصلاح الترويسة وشريط البحث على الجوال */
     .header-grid {
         grid-template-areas: 
             "logo controls"
@@ -842,7 +869,7 @@ body.dark-mode #scrollToTopBtn {
         bottom: 70px; 
     }
     
-    /* 🛑 تجاوب صفحة المقال على الهاتف 🛑 */
+    /* تجاوب صفحة المقال على الهاتف */
     .article-header h1 {
         font-size: 1.8em;
     }
