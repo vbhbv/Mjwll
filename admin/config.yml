@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: vbhbv/Mjwll      # **مهم:** اسم المستخدم / اسم المستودع الخاص بك
+  branch: main          # **مهم:** اسم الفرع الذي تستخدمه للنشر
+  site_domain: vbhbv.github.io/Mjwll
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# تعريف ملفات المحتوى (Collections)
+collections:
+  - name: "articles"    # الاسم البرمجي للمجموعة (قمنا بتغييره إلى articles)
+    label: "مقالات الموقع" # الاسم الظاهر في لوحة التحكم
+    folder: "/"           # **تغيير مهم:** حفظ الملفات في جذر المستودع
+    create: true          # السماح بإنشاء مقالات جديدة
+    # سيتم تسمية الملفات بصيغة: article-عنوان-المقال.html
+    slug: "article-{{slug}}" 
+    extension: "html"     # **تغيير مهم:** حفظ الملفات بامتداد .html
+    format: "frontmatter" # استخدام frontmatter لتخزين البيانات
+    fields: # حقول إدخال البيانات في لوحة التحكم
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "محتوى المقال", name: "body", widget: "markdown"}
+      - {label: "تاريخ النشر", name: "date", widget: "datetime", required: false}
+      - {label: "صورة الغلاف", name: "image", widget: "image", required: false}
