@@ -1,0 +1,28 @@
+_schema: _schema
+paths:
+  uploads: static/uploads
+  static: static
+_snippets_imports:
+  hugo:
+    exclude:
+      - hugo_instagram
+timezone: Asia/Baghdad
+markdown:
+  engine: commonmark
+  options:
+    xhtml: false
+    breaks: false
+    linkify: false
+    typographer: false
+    spaced_lists: false
+    sentence_per_line: false
+    gfm: true
+    code_block_fences: '```'
+    escape_snippets_in_code_blocks: false
+    treat_indentation_as_code: true
+    table: false
+    strikethrough: false
+    subscript: false
+    superscript: false
+    heading_ids: false
+    attributes: false
