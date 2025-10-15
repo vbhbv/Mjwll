@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap/0.9/sitemap-image.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
         <loc>https://vbhbv.github.io/Mjwll/index.html</loc>
-        <lastmod>2025-10-02</lastmod> 
+        <lastmod>2025-10-15</lastmod> 
         <changefreq>daily</changefreq> 
         <priority>1.0</priority> 
-        
-        <image:image>
-            <image:loc>https://vbhbv.github.io/Mjwll/images/author.jpg</image:loc>
-            <image:title>صورة الكاتب مجول شعلان الحيالي</image:title> 
-        </image:image>
-        <image:image>
-            <image:loc>https://vbhbv.github.io/Mjwll/images/book1.jpg</image:loc>
-            <image:title>غلاف كتاب المدينة الفاضلة الحديثة</image:title>
-        </image:image>
-        <image:image>
-            <image:loc>https://vbhbv.github.io/Mjwll/images/book2.jpg</image:loc>
-            <image:title>غلاف كتاب بعثرات فلسفية</image:title>
-        </image:image>
     </url>
 
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/all-articles.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/Article7.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/Article6.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
     <url>
         <loc>https://vbhbv.github.io/Mjwll/article1.html</loc>
         <lastmod>2025-08-10</lastmod>
@@ -52,7 +59,7 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-
+    
     <url>
         <loc>https://vbhbv.github.io/Mjwll/about.html</loc>
         <lastmod>2025-10-02</lastmod>
@@ -72,4 +79,4 @@
         <priority>0.6</priority>
     </url>
     
-    </urlset>
+</urlset>
