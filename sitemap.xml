@@ -18,63 +18,70 @@
     <url>
         <loc>https://vbhbv.github.io/Mjwll/Article7.html</loc>
         <lastmod>2025-10-15</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://vbhbv.github.io/Mjwll/Article6.html</loc>
         <lastmod>2025-10-15</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://vbhbv.github.io/Mjwll/article1.html</loc>
         <lastmod>2025-08-10</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://vbhbv.github.io/Mjwll/article2.html</loc>
         <lastmod>2025-07-25</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://vbhbv.github.io/Mjwll/article3.html</loc>
         <lastmod>2025-07-01</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://vbhbv.github.io/Mjwll/article4.html</loc>
         <lastmod>2025-06-20</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://vbhbv.github.io/Mjwll/article5.html</loc>
         <lastmod>2025-06-15</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/news1.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/news2.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://vbhbv.github.io/Mjwll/news3.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://vbhbv.github.io/Mjwll/about.html</loc>
         <lastmod>2025-10-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://vbhbv.github.io/Mjwll/news1.html</loc>
-        <lastmod>2025-09-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://vbhbv.github.io/Mjwll/news2.html</loc>
-        <lastmod>2025-08-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
