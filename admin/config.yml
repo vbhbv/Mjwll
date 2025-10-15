@@ -1,27 +1,33 @@
 backend:
   name: github
-  repo: vbhbv/Mjwll
-  branch: main
-  site_domain: vbhbv.github.io/Mjwll 
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  repo: vbhbv/Mjwll  # **تأكد** من أن هذا هو اسم المستخدم والمستودع الصحيح
+  branch: main      # **تأكد** من أن هذا هو الفرع الذي تنشر منه (قد يكون 'master' أو 'gh-pages')
+  # ⚠️ تم حذف base_url و auth_endpoint لتجنب التعارض مع GitHub Pages
 
-# الأسطر الجديدة المطلوبة هنا:
-media_folder: "images/uploads"   # **مهم:** تحديد مجلد لحفظ الصور التي ترفعها (ستحتاج لإنشاء هذا المجلد)
-public_folder: "/images/uploads" # **مهم:** المسار العام للوصول للصور على موقعك
+# تفعيل بوابة Git (Git Gateway) للمصادقة:
+# يجب تفعيل Git Gateway في إعدادات Identity الخاصة بموقع Netlify
+auth_methods:
+  - github # المصادقة باستخدام GitHub
+
+# إعداد النشر (يُفضل استخدام هذا لمواقع المحتوى)
+publish_mode: editorial_workflow # يتيح مراجعة المحتوى قبل النشر
+
+# إعدادات ملفات الوسائط (الصور المرفوعة)
+media_folder: "images/uploads"   # المسار إلى مجلد الصور داخل المستودع
+public_folder: "/images/uploads" # المسار العام الذي يمكن للمتصفح الوصول إليه
 
 # تعريف ملفات المحتوى (Collections)
 collections:
   - name: "articles"
-    label: "مقالات الموقع" 
-    folder: "/"
+    label: "مقالات الموقع والاقتباسات" 
+    folder: "_posts"  # **تعديل مقترح:** ضع ملفات المحتوى في مجلد مخصص مثل _posts (خاصة إذا كنت تستخدم Jekyll)
     create: true
-    slug: "article-{{slug}}" 
-    extension: "html"
+    slug: "{{slug}}"  # اسم الملف سيأخذ من عنوان المقال (slug)
+    extension: "md"   # **تعديل مقترح:** استخدام صيغة Markdown (.md) أسهل لـ CMS
     format: "frontmatter"
     fields:
       - {label: "العنوان", name: "title", widget: "string"}
-      - {label: "محتوى المقال", name: "body", widget: "markdown"}
+      - {label: "محتوى المقال أو الاقتباس", name: "body", widget: "markdown"}
       - {label: "تاريخ النشر", name: "date", widget: "datetime", required: false}
       - {label: "صورة الغلاف", name: "image", widget: "image", required: false} 
-      
+      - {label: "الكاتب/الفيلسوف", name: "author", widget: "string"} # **إضافة مقترحة**
