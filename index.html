@@ -39,7 +39,47 @@
             document.body.classList.add(storedTheme);
         }
     </script>
-</head> 
+    
+    <style>
+        /* تنسيق الزر - يجب أن يكون متوافقاً مع تصميمك (mjwl.css) */
+        .read-more-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #f7931e; /* لون أزرار الموقع */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Changa', sans-serif;
+            font-size: 1em;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .read-more-btn:hover {
+            background-color: #e0851c;
+        }
+        
+        /* إخفاء حاوية الأخبار القديمة افتراضياً */
+        .old-news-container {
+            display: none; 
+            padding-top: 10px;
+        }
+
+        /* إظهار الحاوية عند إضافة الكلاس 'show' بواسطة JavaScript */
+        .old-news-container.show {
+            display: block;
+        }
+        
+        /* تنسيق العناصر داخل القائمة المخفية */
+        .old-news-container .clean-list li a {
+            font-size: 0.9em;
+            color: #555; /* لون أقل وضوحاً للأخبار القديمة */
+        }
+    </style>
+    </head> 
 <body>
 
 <div id="progress-bar"></div>
@@ -180,12 +220,24 @@
             
             <section id="news" class="section card" aria-labelledby="news-heading" data-aos="fade-left">
                 <h2 id="news-heading"><i class="fa-solid fa-bullhorn"></i> آخر المستجدات والأخبار</h2>
-                <ul class="clean-list">
+                
+                <ul class="clean-list latest-news-list">
                   <li><a href="news1.html">إطلاق الطبعة الجديدة والمنقحة من "المدينة الفاضلة الحديثة".</a></li>
                   <li><a href="news2.html">كُتيب جديد بعنوان "تَفلسُف" متاح الآن مجاناً.</a></li>
-                  <li><a href="news3.html">فلسفة الوجود المطلق للكاتب مجول شعلان".</a></li>
-                </ul>
-            </section>
+                  </ul>
+                
+                <button class="read-more-btn" onclick="toggleOldNews()">
+                    قراءة الأخبار القديمة
+                </button>
+                
+                <div class="old-news-container" id="oldNews">
+                    <ul class="clean-list">
+                        <li><a href="news3.html">فلسفة الوجود المطلق للكاتب مجول شعلان".</a></li>
+                        <li><a href="news4.html">خبر قديم جداً 2: بدء فعاليات ملتقى الفكر الجديد.</a></li>
+                        <li><a href="news5.html">خبر قديم جداً 3: مقابلة الكاتب مع قناة الجزيرة.</a></li>
+                        </ul>
+                </div>
+                </section>
 
             <section class="section card newsletter-signup" data-aos="fade-left" data-aos-delay="100">
                 <h3 class="card-title">اشترك في النشرة الأسبوعية</h3>
@@ -265,6 +317,22 @@
             alert('فشل النسخ، يرجى المحاولة يدوياً.');
         });
     }
+
+    // 🛑 الدالة الجديدة لتشغيل الإظهار/الإخفاء 🛑
+    function toggleOldNews() {
+        var container = document.getElementById("oldNews");
+        var button = document.querySelector(".read-more-btn");
+        
+        // التبديل بين إضافة وإزالة الكلاس 'show'
+        if (container.classList.contains('show')) {
+            container.classList.remove('show');
+            button.textContent = "قراءة الأخبار القديمة"; // إعادة تسمية الزر
+        } else {
+            container.classList.add('show');
+            button.textContent = "إخفاء الأخبار القديمة"; // تغيير اسم الزر عند الإظهار
+        }
+    }
+    // 🛑 نهاية الدالة الجديدة 🛑
 
     document.addEventListener('DOMContentLoaded', () => {
         // 1. كود تبديل الوضع الليلي (Dark Mode) و الثيم الذهبي
