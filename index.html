@@ -78,39 +78,7 @@
             font-size: 0.9em;
             color: #555; /* لون أقل وضوحاً للأخبار القديمة */
         }
-
-        /* 💥 أنماط الشريط المميز الجديد 💥 */
-        .news-heading-container {
-            position: relative;
-            padding-right: 15px; /* مساحة للشريط الأحمر */
-            margin-bottom: 20px;
-        }
-        .news-heading-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 5px; /* عرض الشريط الأحمر */
-            height: 100%;
-            background-color: #E74C3C; /* لون أحمر */
-            border-radius: 2px;
-        }
-        .featured-text {
-            display: block;
-            position: absolute;
-            top: -10px; /* لتظهر فوق العنوان قليلاً */
-            left: 0;
-            font-family: 'Amiri', serif; /* خط عربي جميل */
-            font-weight: 700;
-            font-size: 0.85em;
-            color: #E74C3C;
-            background-color: #FFFDF5; /* خلفية فاتحة للبروز */
-            padding: 2px 5px;
-            border: 1px solid #E74C3C;
-            border-radius: 3px;
-            transform: rotate(-3deg);
-            z-index: 10;
-        }
+        /* 💥 تم إزالة أنماط الشريط المميز هنا 💥 */
     </style>
     </head> 
 <body>
@@ -252,10 +220,7 @@
         <aside class="sidebar" role="complementary">
             
             <section id="news" class="section card" aria-labelledby="news-heading" data-aos="fade-left">
-                <div class="news-heading-container">
-                    <h2 id="news-heading"><i class="fa-solid fa-bullhorn"></i> آخر المستجدات والأخبار</h2>
-                    <span class="featured-text">مميز</span>
-                </div>
+                <h2 id="news-heading"><i class="fa-solid fa-bullhorn"></i> آخر المستجدات والأخبار</h2>
                 
                 <ul class="clean-list latest-news-list">
                   <li><a href="news1.html">تأسيس اتحاد الأدباء والكتاب العراقيين للثقافة والإبداع.</a></li>
